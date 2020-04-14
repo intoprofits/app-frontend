@@ -1,6 +1,7 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
     menu = document.querySelector('.mobile .menu'),
+    siteLink = window.origin,
     menuItem = document.querySelector('a.haschild');
 
 // functions
@@ -24,8 +25,7 @@ function getContents() {
     document.addEventListener('click', function(e) {
 		if ( e.target.matches('.links a') ) {
             e.preventDefault()
-            let link = e.target.pathname;
-
+            let link = siteLink + e.target.pathname;
 
             [].forEach.call(document.querySelectorAll('.links a'), function(e) { 
                 e.classList.remove('active')
