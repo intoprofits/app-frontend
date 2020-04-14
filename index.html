@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Intoprofits</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Intoprofits</title>
 </head>
 <body>
 	<header>
 
 		<div class="mobile">
 			<div class="topnav">
-				<img src="imgs/logo-black.png" alt="" class="logo">
+				<a href="index.html"><img src="../../imgs/logo-black.png" alt="" class="logo"></a>
 				<i class="fas fa-bars main-mobile-menu"></i>
 			</div>
 			<nav class="menu">
 				<div class="item active">
-					<a href="#" class="haschild">Supply Chain <i class="fas fa-chevron-down"></i></a>
-					<nav class="m-sub-menu">
-						<a href="#">P.O Creator</a>
-						<a href="#">Inventory Planning</a>
-						<a href="#">Tracking & Analysis</a>
-						<a href="#">Weekly Inventory Report</a>
-						<a href="#">My Products</a>
-						<a href="#">View Drive</a>
+					<a href="#" class="haschild active">Supply Chain <i class="fas fa-chevron-down"></i></a>
+					<nav class="m-sub-menu links">
+						<a href="/pages/supply-chain/po-creator.html" class="active">P.O Creator</a>
+						<a href="/pages/supply-chain/inventory-planning.html">Inventory Planning</a>
+						<a href="/pages/supply-chain/tracking-analysis.html">Tracking & Analysis</a>
+						<a href="/pages/supply-chain/weekly-report.html">Weekly Inventory Report</a>
+						<a href="/pages/supply-chain/products.html">My Products</a>
+						<a href="/pages/supply-chain/drive.html">View Drive</a>
 					</nav>
 				</div>
-
+	
 				<div class="item">
 					<a href="#" class="haschild">Advertising <i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu">
@@ -36,7 +37,7 @@
 						<a href="#">View Drive</a>
 					</nav>
 				</div>
-
+	
 				<div class="item">
 					<a href="#" class="haschild">Finances <i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu">
@@ -46,7 +47,7 @@
 						<a href="#">Budgeting</a>
 					</nav>
 				</div>
-
+	
 				<div class="item">
 					<a href="#" class="haschild">R&amp;D <i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu">
@@ -55,7 +56,7 @@
 						<a href="#">Product Research</a>
 					</nav>
 				</div>
-
+	
 				<div class="item">
 					<a href="#" class="haschild">KPI - Company Focus<i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu">
@@ -65,17 +66,18 @@
 						<a href="#">Storage Free Performance</a>
 					</nav>
 				</div>
-
+	
 				<div class="item">
 					<a href="#" >My Profile</a>
 				</div>
-
+	
 			</nav>
 		</div>
-
+		<!-- /mobile menu -->
+	
 		<div class="desktop">
 			<div class="topnav">
-				<img src="imgs/logo-black.png" alt="" class="logo">
+				<a href="index.html"><img src="../../imgs/logo-black.png" alt="" class="logo"></a>
 			</div>
 			<nav class="menu">
 				<a href="#" class="active">Supply Chain</a>
@@ -86,104 +88,108 @@
 				<a href="#">My Profile</a>
 			</nav>
 		</div>
+		<!-- /desktop menu -->
 		
 	</header>
+	<!-- /header  -->
 
-
-	<main>
+	<main class="clear">
 		<aside class="side-nav">
-			<a href="#" class="side-mobile-menu">Menu <i class="fas fa-chevron-down"></i></a>	
-			<nav class="side-menu">
-				<a href="#">P.O Creator</a>
-				<a href="#">Inventory Planning</a>
-				<a href="#">Tracking & Analysis</a>
-				<a href="#">Weekly Inventory Report</a>
-				<a href="#">My Products</a>
-				<a href="#">View Drive</a>
+			<nav class="side-menu links">
+				<a href="/pages/supply-chain/po-creator.html" class="active">P.O Creator</a>
+				<a href="/pages/supply-chain/inventory-planning.html">Inventory Planning</a>
+				<a href="/pages/supply-chain/tracking-analysis.html">Tracking & Analysis</a>
+				<a href="/pages/supply-chain/weekly-report.html">Weekly Inventory Report</a>
+				<a href="/pages/supply-chain/products.html">My Products</a>
+				<a href="/pages/supply-chain/drive.html">View Drive</a>
 			</nav>
 		</aside>
 
-		<section class="content">
-			<h3>P.O Creator</h3>
-			<div>
+		<div class="container clear">
+			<section class="content">
+				<h4>P.O Creator</h4>
+				<div>
 
-				<div class="input-wrap">
-					<p>Select Supplier</p>
-					<select name="supplier" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
-					</select>
-				</div>
+					<div class="input-wrap">
+						<p>Select Supplier</p>
+						<select name="supplier" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
 
-				<div class="input-wrap">
-					<p>Select Shipping Address</p>
-					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
-					</select>
-				</div>
+					<div class="input-wrap">
+						<p>Select Shipping Address</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
 
-				<div class="input-wrap">
-					<p>Shipping Method</p>
-					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
-					</select>
-				</div>
+					<div class="input-wrap">
+						<p>Shipping Method</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
 
-				<div class="input-wrap">
-					<p>Product</p>
-					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
-					</select>
+					<div class="input-wrap">
+						<p>Product</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
+					
+					<div class="input-wrap">
+						<p>Order Quantity</p>
+						<input type="number" name="" id="">
+					</div>
+					
+					<div class="input-wrap">
+						<p>Unit Cost</p>
+						<input type="text">
+					</div>
+					
+					<div class="input-wrap">
+						<p>Discount Request</p>
+						<input type="text">
+					</div>
+					
+					<a href="#" class="button">Review & Send</a>
 				</div>
-				
-				<div class="input-wrap">
-					<p>Order Quantity</p>
-					<input type="number" name="" id="">
-				</div>
-				
-				<div class="input-wrap">
-					<p>Unit Cost</p>
-					<input type="text">
-				</div>
-				
-				<div class="input-wrap">
-					<p>Discount Request</p>
-					<input type="text">
-				</div>
-				
-				<a href="#" class="button">Review & Send</a>
-			</div>
-		</section>
+			</section>
 
-		<section class="content">
-			<h3>Recent Items</h3>
-			<div>
-				<div class="po-items">
+			<section class="content">
+				<h4>Recent Items</h4>
+				<div>
+					<div class="po-items">
 
+					</div>
+					<a href="#" class="button">Create Custom P.O</a>
+					<a href="#" class="button">Saved Templates</a>
 				</div>
-				<a href="#" class="button">Create Custom P.O</a>
-				<a href="#" class="button">Saved Templates</a>
-			</div>
-		</section>
+			</section>
+		</div>
 	</main>
+	<!-- /main -->
 	
 	<footer>
 		<p>Copyright Intorprofits 2020</p>
-		<script src="/app.js"></script>
-		<link rel="stylesheet" href="style.css">
+		<script src="../../app.js"></script>
+		<link rel="stylesheet" href="../../style.css">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/9bdf3cc272.js" crossorigin="anonymous"></script>
 	</footer>
+	<!-- /footer -->
 </body>
 </html>

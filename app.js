@@ -20,6 +20,32 @@ function mobileMenu() {
 	});
 }
 
+function getContents() {
+    document.addEventListener('click', function(e) {
+		if ( e.target.matches('.links a') ) {
+            e.preventDefault()
+            let link = e.target.pathname;
+
+
+            [].forEach.call(document.querySelectorAll('.links a'), function(e) { 
+                e.classList.remove('active')
+            });
+
+            e.target.classList.add('active')
+
+            fetch(link)
+                .then(response => {
+                    return response.text()
+                })
+                .then(data => {
+                    document.querySelector("div.container").innerHTML = data;
+                    console.log('tae')
+                });
+		}
+	})
+}
+
 
 // call functions
 mobileMenu()
+getContents()
