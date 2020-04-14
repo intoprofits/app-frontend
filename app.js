@@ -1,26 +1,25 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
-    sideMenuDrawer = document.querySelector('.side-mobile-menu'),
-    menu = document.querySelector('.main-menu'),
-    sideMenu = document.querySelector('.side-menu');
+    menu = document.querySelector('.mobile .menu'),
+    menuItem = document.querySelector('a.haschild');
 
 // functions
-function menuAndnav() {
-	menuDrawer.addEventListener('click', function() {
-        menu.classList.toggle('hidden')
-    })
-    sideMenuDrawer.addEventListener('click', function() {
-        sideMenu.classList.toggle('hidden')
-	})
+function mobileMenu() {
+	menuDrawer.addEventListener('click', function(e) {
+        e.preventDefault();
+        menu.classList.toggle('show')
+    });
+
+    [].forEach.call(document.querySelectorAll('a.haschild'), function(e) { 
+		e.addEventListener('click', function(e) {
+			e.preventDefault()
+
+            this.nextElementSibling.classList.toggle('show')
+            
+		})
+	});
 }
 
-function checkWindowSize() {
-    if (window.innerWidth < 960) {
-        menu.classList.add('hidden')
-        sideMenu.classList.add('hidden')
-    }
-}
 
 // call functions
-menuAndnav()
-checkWindowSize()
+mobileMenu()

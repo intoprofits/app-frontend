@@ -60,6 +60,10 @@ h1 {
   font-size: 2rem;
 }
 
+.clear:before, .clear:after {
+  clear: both;
+}
+
 a {
   text-decoration: none;
 }
@@ -72,8 +76,10 @@ a.button {
   background: #0047AB;
   padding: 1rem 2rem;
   color: #fff;
-  display: inline-block;
+  display: block;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 a.button:hover {
@@ -111,30 +117,63 @@ header .topnav i {
   cursor: pointer;
 }
 
-header .main-menu {
+header .mobile {
   background: #F4F5F7;
-  display: block;
 }
 
-header .main-menu.hidden {
+header .mobile .menu {
   display: none;
 }
 
-header .main-menu a {
+header .mobile .menu.show {
   display: block;
-  border-bottom: 5px solid #F4F5F7;
-  border-top: 1px solid #C9C9C9;
+}
+
+header .mobile .menu .item a {
+  display: block;
+  position: relative;
+  color: #000;
   padding: 1rem;
+  border-top: 1px solid #C9C9C9;
+}
+
+header .mobile .menu .item i {
+  position: absolute;
+  right: 1rem;
+}
+
+header .mobile .menu .m-sub-menu {
+  display: none;
+  background: #fff;
+}
+
+header .mobile .menu .m-sub-menu.show {
+  display: block;
+}
+
+header .mobile .menu .m-sub-menu a {
+  font-size: .8rem;
+  padding: .8rem 2rem;
+  border-top-color: #f0f0f0;
+}
+
+header .desktop {
+  display: none;
+  background: #F4F5F7;
+}
+
+header .desktop .menu a {
+  padding: 1rem;
+  display: inline-block;
   color: #000;
 }
 
-header .main-menu a:hover, header .main-menu a.active {
-  background: #F4F5F7;
-  border-bottom: 5px solid #0047AB;
+header .desktop .menu.active {
+  border-bottom: 4px solid #0047AB;
 }
 
-header .main-menu a.active {
-  background-color: #F4F5F7;
+.side-nav {
+  display: none;
 }
 
 .side-nav a.side-mobile-menu {
@@ -146,14 +185,19 @@ header .main-menu a.active {
   color: #000;
 }
 
+.side-nav .side-menu {
+  border-bottom: 1px solid #C9C9C9;
+}
+
 .side-nav .side-menu.hidden {
   display: none;
 }
 
 .side-nav .side-menu a {
+  background: #F4F5F7;
   display: block;
-  border-bottom: 1px solid #C9C9C9;
-  padding: .5rem;
+  border-top: 1px solid #C9C9C9;
+  padding: 1rem;
   color: #000;
 }
 
@@ -173,5 +217,20 @@ header .main-menu a.active {
 
 .input-wrap select, .input-wrap input {
   margin-bottom: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: #F4F5F7;
+}
+
+@media (min-width: 763px) {
+  header .mobile {
+    display: none;
+  }
+  header .desktop {
+    display: block;
+  }
 }
 /*# sourceMappingURL=style.css.map */

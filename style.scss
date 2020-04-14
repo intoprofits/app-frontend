@@ -46,6 +46,11 @@ h3 { font-weight: bold; font-size: 1.6rem; }
 h2 { font-weight: bold; font-size: 1.8rem; }
 h1 { font-weight: bold; font-size: 2rem; }
 
+.clear {
+    &:before, &:after {
+        clear: both;
+    }
+}
 
 a {
     text-decoration: none;
@@ -57,8 +62,10 @@ a {
         background: $blue;
         padding: 1rem 2rem;
         color: $white;
-        display: inline-block;
+        display: block;
         font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
 
         &:hover {
             opacity: .9;
@@ -76,11 +83,14 @@ select, input {
     box-sizing: border-box;
 }
 
+
 header {
+
     .topnav {
         background: $gray;
         padding: 16px 20px;
         position: relative;
+
         img.logo {
             display: inline-block;
             max-width: 250px;
@@ -95,24 +105,58 @@ header {
         }
     }
 
-    .main-menu {
+    .mobile{
         background: $blueGray;
-        display: block;
-        &.hidden { display: none; }
-        a {
-            display: block;
-            border-bottom: 5px solid $blueGray;
-            border-top: $border;
-            padding: 1rem;
-            color: $black;
-            
-            &:hover, &.active {
-                background: $blueGray;
-                border-bottom: 5px solid $blue;
+
+        .menu {
+            display: none;
+            &.show {
+                display: block;
             }
-    
+
+            .item {
+                a {
+                    display: block;
+                    position: relative;
+                    color: $black;
+                    padding: 1rem;
+                    border-top: $border;
+                }
+                i {
+                    position: absolute;
+                    right: 1rem;
+                }
+            }
+
+            .m-sub-menu {
+                display: none;
+                background: $white;
+                &.show {
+                    display: block;
+                }
+                a {
+                    font-size: .8rem;
+                    padding: .8rem 2rem;
+                    border-top-color: #f0f0f0;
+                }
+            }
+        }
+    }
+
+    .desktop {
+        display: none;
+        background: $blueGray;
+
+
+        .menu {
+
+            a {
+                padding: 1rem;
+                display: inline-block;
+                color: $black;
+            }
             &.active {
-                background-color: $blueGray;
+                border-bottom: 4px solid $blue;
             }
         }
     }
@@ -120,6 +164,7 @@ header {
 
 
 .side-nav {
+    display: none;
     a.side-mobile-menu {
         font-size: 1rem;
         padding: .5rem;
@@ -129,11 +174,13 @@ header {
         color: $black;
     }
     .side-menu {
+        border-bottom: $border;
         &.hidden { display: none }
         a {
+            background: $blueGray;
             display: block;
-            border-bottom: $border;
-            padding: .5rem;
+            border-top: $border;
+            padding: 1rem;
             color: $black;
         }
     }
@@ -156,5 +203,23 @@ header {
     }
     select, input {
         margin-bottom: 2rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: $blueGray;
+}
+
+@media (min-width: 763px) {
+
+    header {
+        .mobile {
+            display: none;
+        }
+        .desktop {
+            display: block;
+        }
     }
 }
