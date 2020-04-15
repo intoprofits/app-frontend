@@ -1,6 +1,7 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
     menu = document.querySelector('.mobile .menu'),
+    siteLink = window.origin,
     menuItem = document.querySelector('a.haschild');
 
 // functions
@@ -18,6 +19,14 @@ function mobileMenu() {
             
 		})
 	});
+}
+
+function useDomainLink() {
+    [].forEach.call(document.querySelectorAll('.links a'), function(e) { 
+        let origlink = e.getAttribute('href')
+        e.setAttribute('href', siteLink + origlink)
+     
+     });
 }
 
 function getContents() {
@@ -46,5 +55,6 @@ function getContents() {
 
 
 // call functions
+useDomainLink()
 mobileMenu()
 getContents()
