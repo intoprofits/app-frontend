@@ -19,10 +19,10 @@
 				<div class="item active">
 					<a href="#" class="haschild active">Supply Chain <i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu links">
-						<a href="../supply-chain/po-creator.html">P.O Creator</a>
-						<a href="../supply-chain/inventory-planning.html" class="active">Inventory Planning</a>
+						<a href="../supply-chain/po-creator.html" class="active">P.O Creator</a>
+						<a href="../supply-chain/inventory-planning.html">Inventory Planning</a>
 						<a href="../supply-chain/tracking-analysis.html">Tracking & Analysis</a>
-						<a href="../supply-chain/weekly-report.html" class="active">Weekly Inventory Report</a>
+						<a href="../supply-chain/weekly-report.html">Weekly Inventory Report</a>
 						<a href="../supply-chain/products.html">My Products</a>
 						<a href="../supply-chain/drive.html">View Drive</a>
 					</nav>
@@ -103,19 +103,79 @@
 		<aside class="side-nav">
 			<nav class="side-menu links">
 				<a href="../supply-chain/po-creator.html" >P.O Creator</a>
-				<a href="../supply-chain/inventory-planning.html" class="active">Inventory Planning</a>
+				<a href="../supply-chain/inventory-planning.html">Inventory Planning</a>
 				<a href="../supply-chain/tracking-analysis.html">Tracking & Analysis</a>
 				<a href="../supply-chain/weekly-report.html">Weekly Inventory Report</a>
-				<a href="../supply-chain/products.html">My Products</a>
+				<a href="../supply-chain/products.html" class="active">My Products</a>
 				<a href="../supply-chain/drive.html">View Drive</a>
 			</nav>
 		</aside>
 
-		<div class="container clear">
+        <div class="container clear">
 			<section class="content full">
-                <h5>Inventory Planning</h5>
+				<h4>Add Product</h4>
+				<div class="content-half">
+
+					<div class="input-wrap">
+						<p>Select Supplier</p>
+						<select name="supplier" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
+
+					<div class="input-wrap">
+						<p>Select Shipping Address</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
+
+					<div class="input-wrap">
+						<p>Shipping Method</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
+
+					<div class="input-wrap">
+						<p>Product</p>
+						<select name="" id="">
+							<option hidden value="#">-- Select --</option>
+							<option value="#">Sample Dropdown 1</option>
+							<option value="#">Sample Dropdown 2</option>
+							<option value="#">Sample Dropdown 3</option>
+						</select>
+					</div>
+					
+					<div class="input-wrap">
+						<p>Order Quantity</p>
+						<input type="number" name="" id="">
+					</div>
+					
+					<div class="input-wrap">
+						<p>Unit Cost</p>
+						<input type="text">
+					</div>
+					
+					<div class="input-wrap">
+						<p>Discount Request</p>
+						<input type="text">
+					</div>
+					
+					<a href="../supply-chain/products.html" class="button">Save</a>
+					<a href="../supply-chain/products.html" class="button">Cancel</a>
+				</div>
             </section>
-		</div>
+        </div>
 
 	</main>
 	<!-- /main -->
@@ -130,5 +190,3 @@
 	<!-- /footer -->
 </body>
 </html>
-
-

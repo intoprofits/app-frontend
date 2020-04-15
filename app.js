@@ -1,8 +1,10 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
     menu = document.querySelector('.mobile .menu'),
-    siteLink = window.document.location.href,
-    menuItem = document.querySelector('a.haschild');
+    menuItem = document.querySelector('a.haschild'),
+    closeModal = document.querySelector('a.closeModal'),
+    innerModal = document.querySelector('.modal-container'),
+    modal = document.querySelector('#modal');
 
 // functions
 function mobileMenu() {
@@ -21,40 +23,29 @@ function mobileMenu() {
 	});
 }
 
-function useDomainLink() {
-    [].forEach.call(document.querySelectorAll('.links a'), function(e) { 
-        let origlink = e.getAttribute('href')
-        e.setAttribute('href', siteLink + origlink)
-     
-     });
-}
 
-function getContents() {
-    document.addEventListener('click', function(e) {
-		if ( e.target.matches('.links a') ) {
+function openModal() {
+    [].forEach.call(document.querySelectorAll('a.modal'), function(e) { 
+		e.addEventListener('click', function(e) {
             e.preventDefault()
-            let link = e.target.pathname;
+            
 
-            [].forEach.call(document.querySelectorAll('.links a'), function(e) { 
-                e.classList.remove('active')
-            });
+            let content = e.target.attributes.content.value
 
-            e.target.classList.add('active')
+            innerModal.innerHTML = content
+            modal.classList.add('active')
+            
+		})
+    });
+    
+    closeModal.addEventListener('click', function(e) {
+        e.preventDefault()
 
-            fetch(link)
-                .then(response => {
-                    return response.text()
-                })
-                .then(data => {
-                    document.querySelector("div.container").innerHTML = data;
-                    console.log('tae')
-                });
-		}
-	})
+        modal.classList.remove('active')
+    });
 }
 
 
 // call functions
-useDomainLink()
 mobileMenu()
-getContents()
+openModal()
