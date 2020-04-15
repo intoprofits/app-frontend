@@ -1,5 +1,6 @@
 // colors
 $blue: #0047AB;
+$blue1: #0089FF;
 $blueGray: #F4F5F7;
 $blueGray1: #E3E8EB;
 $gray: #EFEFEF;
@@ -48,7 +49,7 @@ h4 { font-weight: bold; font-size: 1.4rem; }
 h3 { font-weight: bold; font-size: 1.6rem; }
 h2 { font-weight: bold; font-size: 1.8rem; }
 h1 { font-weight: bold; font-size: 2rem; }
-
+b { font-weight: bold; }
 .clear {
     *zoom:1;
     &:before, &:after {
@@ -127,7 +128,7 @@ input[type="submit"], input[type="file"] {
     top: -3px;
     
     &:hover {
-        background: #0089FF;
+        background: $blue1;
         color: #FFF;
     }
 
@@ -149,15 +150,15 @@ input[type="file"] {
 }
 
 
-
-
+/* ---------------------
+        DEFAULTS
+------------------------ */
+// Header
 header {
-
     .topnav {
         background: $gray;
         padding: 1.1rem 2rem;
         position: relative;
-
         img.logo {
             display: inline-block;
             max-width: 206px;
@@ -170,7 +171,6 @@ header {
             padding: .5rem;
             cursor: pointer;
         }
-
         a.logout {
             float: right;
             line-height: 1.5rem;
@@ -181,14 +181,12 @@ header {
 
     .mobile{
         background: $blueGray;
-
         .menu {
             display: none;
             border-bottom: $border;
             &.show {
                 display: block;
             }
-
             .item {
                 &.active {
                     background: $white;
@@ -199,14 +197,12 @@ header {
                     color: $black;
                     padding: 1rem;
                     border-top: $border;
-                    
                 }
                 i {
                     position: absolute;
                     right: 1rem;
                 }
             }
-
             .m-sub-menu {
                 display: none;
                 background: $white;
@@ -250,67 +246,113 @@ header {
     }
 }
 
-
+// Main 
 main {
     margin: 1.5rem 0;
-
-    .side-nav {
-        display: none;
-        .side-menu {
-            a {
-                display: block;
-                padding: .8rem;
-                color: $black;
-                font-size: .8rem;
-                border-left: .2rem solid $blueGray;
-                &.active, &:hover {
-                    background: $blueGray;
-                    border-left: .2rem solid $gray1;
-                }
-                &.active {
-                    font-weight: bold;
-                }
-            }
-        }
-    }
-
-    .container {
-        box-sizing: border-box;
-        position: relative;
-        
-        a.learn {
-            text-align: right;
-            background: $blue;
-            padding: .5rem 1rem;
-            color: $white;
+}
+.side-nav {
+    display: none;
+    .side-menu {
+        a {
+            display: block;
+            padding: .8rem;
+            color: $black;
             font-size: .8rem;
-            display: inline-block;
-            position: absolute;
-            right: 2.8rem;
-            top: -1rem;
-            i{
-                font-size: .7rem;
-                margin-left: .2rem;
+            border-left: .2rem solid $blueGray;
+            &.active, &:hover {
+                background: $blueGray;
+                border-left: .2rem solid $gray1;
             }
-            
-        }
-        .content {
-            padding: 1rem;
-            box-sizing: border-box;
-            h4 {
-                margin-bottom: 1.5rem;
-                padding-bottom: .6rem;
-                border-bottom: $border;
+            &.active {
+                font-weight: bold;
             }
         }
     }
 }
 
+.container {
+    box-sizing: border-box;
+    position: relative;
+    a.learn {
+        text-align: right;
+        background: $blue;
+        padding: .5rem 1rem;
+        color: $white;
+        font-size: .8rem;
+        display: inline-block;
+        position: absolute;
+        right: 2.8rem;
+        top: -1.2rem;
+        i{
+            font-size: .7rem;
+            margin-left: .2rem;
+        }
+    }
+    .content {
+        padding: 1rem;
+        box-sizing: border-box;
+        h4 {
+            margin-bottom: 1.5rem;
+            padding-bottom: .6rem;
+            border-bottom: $border;
+        }
+    }
+}
 
+// Footer 
 footer {
     text-align: center;
     padding: 2rem 0;
     background: $blueGray;
+}
+
+
+/* ---------------------
+        PAGES
+------------------------ */
+
+// P.O Items 
+.po-item-wrap {
+    margin-bottom: 1rem;
+    .po-item {
+        display: block;
+        background: $blueGray;
+        height: 250px;
+        margin-bottom: 1rem;
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+        border: $border-light;
+        &:hover {
+            border-color: $blue;
+        }
+        &:before{
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: $white;
+            opacity: .5;
+        }
+        .po-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: $white;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-top: $border-light;
+            p {
+                margin-bottom: .5rem;
+                font-size: .9rem;
+                color: $black;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
 }
 
 
@@ -447,7 +489,6 @@ footer {
         }
     }
 }
-
 .input-wrap {
     p {
         margin-bottom: .3rem;
@@ -478,17 +519,29 @@ footer {
     }
 
     .modal-container {
-        max-width: 800px;
+        min-width: 800px;
         min-height: 400px;
-        width: 100%;
         display: block;
         margin: 0 auto;
         border: $border;
-        padding: 3rem 2rem;
+        padding: 1.5rem 2rem;
         background: $white;
         font-size: .9rem;
         text-align: left;
+        position: relative;
 
+        a.closeModal {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: $black;
+            z-index: 1;
+        }
+        .title, iframe {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
         
     }
         
@@ -518,19 +571,16 @@ footer {
     }
 
     main {
-
         .side-nav {
             display: block;
             width: 25%;
             float: left;
         }
-    
         .container {
             border-left: $border;
             float: left;
             width: 75%;
             min-height: 60vh;
-
             .content {
                 float: left;
                 width: 50%;
@@ -541,6 +591,13 @@ footer {
                     width: 100%;
                 }
             }
+        }
+    }
+
+    // P.O Items 
+    .po-item-wrap {
+        .po-item {
+            height: 250px;
         }
     }
     
@@ -606,6 +663,15 @@ footer {
             }
         }
     }
+
+     // P.O Items 
+     .po-item-wrap {
+        .po-item {
+            width: 47%;
+            float: left;
+            margin-right: 2.5%;
+        }
+    }
 }
 
 /* Large Devices, Wide Screens */
@@ -627,6 +693,16 @@ footer {
                     width: 60%;
                 }
             }
+        }
+    }
+
+    // P.O Items 
+    .po-item-wrap {
+        .po-item {
+            width: 31%;
+            float: left;
+            margin-right: 2%;
+          
         }
     }
 	

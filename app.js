@@ -3,7 +3,7 @@ let menuDrawer = document.querySelector('.main-mobile-menu'),
     menu = document.querySelector('.mobile .menu'),
     menuItem = document.querySelector('a.haschild'),
     closeModal = document.querySelector('a.closeModal'),
-    innerModal = document.querySelector('.modal-container'),
+    innerModal = document.querySelector('.modal-contents'),
     modal = document.querySelector('#modal');
 
 // functions

@@ -60,6 +60,10 @@ h1 {
   font-size: 2rem;
 }
 
+b {
+  font-weight: bold;
+}
+
 .clear {
   *zoom: 1;
 }
@@ -163,6 +167,9 @@ input[type="file"] {
   border: 0;
 }
 
+/* ---------------------
+        DEFAULTS
+------------------------ */
 header .topnav {
   background: #EFEFEF;
   padding: 1.1rem 2rem;
@@ -268,11 +275,11 @@ main {
   margin: 1.5rem 0;
 }
 
-main .side-nav {
+.side-nav {
   display: none;
 }
 
-main .side-nav .side-menu a {
+.side-nav .side-menu a {
   display: block;
   padding: .8rem;
   color: #000;
@@ -280,22 +287,22 @@ main .side-nav .side-menu a {
   border-left: 0.2rem solid #F4F5F7;
 }
 
-main .side-nav .side-menu a.active, main .side-nav .side-menu a:hover {
+.side-nav .side-menu a.active, .side-nav .side-menu a:hover {
   background: #F4F5F7;
   border-left: 0.2rem solid #828282;
 }
 
-main .side-nav .side-menu a.active {
+.side-nav .side-menu a.active {
   font-weight: bold;
 }
 
-main .container {
+.container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
 }
 
-main .container a.learn {
+.container a.learn {
   text-align: right;
   background: #0047AB;
   padding: .5rem 1rem;
@@ -304,21 +311,21 @@ main .container a.learn {
   display: inline-block;
   position: absolute;
   right: 2.8rem;
-  top: -1rem;
+  top: -1.2rem;
 }
 
-main .container a.learn i {
+.container a.learn i {
   font-size: .7rem;
   margin-left: .2rem;
 }
 
-main .container .content {
+.container .content {
   padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-main .container .content h4 {
+.container .content h4 {
   margin-bottom: 1.5rem;
   padding-bottom: .6rem;
   border-bottom: 1px solid #C9C9C9;
@@ -328,6 +335,59 @@ footer {
   text-align: center;
   padding: 2rem 0;
   background: #F4F5F7;
+}
+
+/* ---------------------
+        PAGES
+------------------------ */
+.po-item-wrap {
+  margin-bottom: 1rem;
+}
+
+.po-item-wrap .po-item {
+  display: block;
+  background: #F4F5F7;
+  height: 250px;
+  margin-bottom: 1rem;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  border: 1px solid #DCDCDC;
+}
+
+.po-item-wrap .po-item:hover {
+  border-color: #0047AB;
+}
+
+.po-item-wrap .po-item:before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .5;
+}
+
+.po-item-wrap .po-item .po-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: 1px solid #DCDCDC;
+}
+
+.po-item-wrap .po-item .po-info p {
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  color: #000;
+}
+
+.po-item-wrap .po-item .po-info p:last-child {
+  margin: 0;
 }
 
 .login-container {
@@ -510,16 +570,30 @@ footer {
 }
 
 #modal .modal-container {
-  max-width: 800px;
+  min-width: 800px;
   min-height: 400px;
-  width: 100%;
   display: block;
   margin: 0 auto;
   border: 1px solid #C9C9C9;
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
   background: #fff;
   font-size: .9rem;
   text-align: left;
+  position: relative;
+}
+
+#modal .modal-container a.closeModal {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: #000;
+  z-index: 1;
+}
+
+#modal .modal-container .title, #modal .modal-container iframe {
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
 /* Small Devices, Tablets */
@@ -554,6 +628,9 @@ footer {
   main .container .content.full {
     float: none;
     width: 100%;
+  }
+  .po-item-wrap .po-item {
+    height: 250px;
   }
 }
 
@@ -594,6 +671,11 @@ footer {
   main .container .content .content-half {
     width: 50%;
   }
+  .po-item-wrap .po-item {
+    width: 47%;
+    float: left;
+    margin-right: 2.5%;
+  }
 }
 
 /* Large Devices, Wide Screens */
@@ -612,6 +694,11 @@ footer {
   }
   main .container .content:nth-child(2) {
     width: 60%;
+  }
+  .po-item-wrap .po-item {
+    width: 31%;
+    float: left;
+    margin-right: 2%;
   }
 }
 /*# sourceMappingURL=style.css.map */
