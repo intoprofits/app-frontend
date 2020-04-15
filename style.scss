@@ -4,6 +4,7 @@ $gray: #EFEFEF;
 $blueGray: #F4F5F7;
 $white: #fff;
 $border: 1px solid #C9C9C9;
+$border-light: 1px solid #DCDCDC;
 $black: #000;
 
 // reset
@@ -57,8 +58,9 @@ h1 { font-weight: bold; font-size: 2rem; }
 
 a {
     text-decoration: none;
+    color: $blue;
     &:hover {
-        color: $blue;
+        opacity: .9;
     }
 
     &.button {
@@ -70,22 +72,82 @@ a {
         text-align: center;
         margin-bottom: 1rem;
 
-        &:hover {
-            opacity: .9;
+        &.fullwidth {
+            display: block;
+            margin: 0 0 1rem;
         }
     }
 }
 
-select, input {
-    background: $blueGray;
-    border: none;
-    outline: none;
-    padding: .5rem .8rem;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
+input[type="search"] {
+    ::-webkit-search-decoration,
+    ::-webkit-search-cancel-button,
+    ::-webkit-search-results-button,
+    ::-webkit-search-results-decoration { display: none; outline: none}
 }
 
+select, textarea, input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])  {
+    padding: .6rem 1rem;
+	width: 100%;
+    color: $black;
+    font-size: 1rem;
+	outline: none;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+    border: $border-light;
+    background: $blueGray;
+    display: block;
+    
+    &:focus {
+        border: 1px solid #598DFB;
+        color: #000000;
+        background: #EDF2FD;
+    }
+}
+
+input[type="submit"], input[type="file"] {
+    cursor: pointer;
+	font-size: 1.2rem;
+	color: #FFF;
+	padding: 10px 15px;
+	display: inline-block;
+	margin: 20px 0;
+	background: #363636;
+	transition: all 0s;
+	position: relative;
+    top: -3px;
+    
+    &:hover {
+        background: #0089FF;
+        color: #FFF;
+    }
+
+    &:active {
+        background: #1957DA;
+        color: #FFF;
+    }
+}
+
+input[type="file"] {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0, 0, 0, 0);
+	border:0;
+}
+
+
+.input-wrap {
+    p {
+        margin-bottom: .3rem;
+    }
+    select, input {
+        margin-bottom: 2rem;
+    }
+}
 
 header {
 
@@ -218,20 +280,55 @@ main {
 }
 
 
-
-.input-wrap {
-    p {
-        margin-bottom: .5rem;
-    }
-    select, input {
-        margin-bottom: 2rem;
-    }
-}
-
 footer {
     text-align: center;
     padding: 2rem 0;
     background: $blueGray;
+}
+
+
+// Login Page 
+.login-container {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    
+    form {
+        max-width: 400px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        border: $border;
+        padding: 3rem 2rem;
+        text-align: center;
+        font-size: .9rem;
+
+        .input-wrap {
+            text-align: left;
+            p {
+                font-size: 1rem;
+            }
+        }
+        img.logo {
+            max-width: 300px;
+            width: 100%;
+            display: block;
+            margin: 0 auto 1.2rem;
+        }
+        h5 {
+            margin-bottom: 2.5rem;
+        }
+        input[type="password"], input[type="checkbox"] {
+            margin-bottom: 1rem;
+        }
+        .button {
+            margin-top: 1.5rem;
+        }
+        
+    }
+ 
 }
 
 
