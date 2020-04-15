@@ -1,7 +1,7 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
     menu = document.querySelector('.mobile .menu'),
-    siteLink = window.origin,
+    siteLink = window.document.location.href,
     menuItem = document.querySelector('a.haschild');
 
 // functions
