@@ -20,11 +20,8 @@
 					<a href="#" class="haschild">Supply Chain <i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu links">
 						<a href="../supply-chain/po-creator.html">P.O Creator</a>
-						<a href="../supply-chain/inventory-planning.html">Inventory Planning</a>
-						<a href="../supply-chain/tracking-analysis.html">Tracking & Analysis</a>
-						<a href="../supply-chain/weekly-report.html">Weekly Inventory Report</a>
+						<a href="../supply-chain/inventory-analysis.html">Inventory Analysis</a>
 						<a href="../supply-chain/products.html">My Products</a>
-						<a href="../supply-chain/drive.html">View Drive</a>
 					</nav>
 				</div>
 	
@@ -71,7 +68,12 @@
 				<div class="item active">
 					<a href="#" class="haschild active">My Profile<i class="fas fa-chevron-down"></i></a>
 					<nav class="m-sub-menu">
-						<a href="../profile.html" class="active">My Profile</a>
+						<a href="../profile/personal-details.html">Personal Details</a>
+						<a href="../profile/social-profile.html" class="active">Company Profile</a>
+						<a href="../profile/drive-email-link.html">Drive and Email Link</a>
+						<a href="../profile/purchase-history.html">Purchase History</a>
+						<a href="../profile/payment-details.html">Payment Details</a>
+						<a href="../profile/change-password.html">Change Password</a>
 						<a href="../../">Logout</a>
 					</nav>
 				</div>
@@ -91,6 +93,7 @@
 				<a href="#">Finances</a>
 				<a href="#">R&D</a>
 				<a href="#">KPI</a>
+				<a href="#">Seller University</a>
 				<a href="../profile/personal-details.html" class="active">My Profile</a>
 			</nav>
 		</div>
@@ -103,7 +106,7 @@
 		<aside class="side-nav">
 			<nav class="side-menu links">
 				<a href="../profile/personal-details.html">Personal Details</a>
-				<a href="../profile/social-profile.html" class="active">Social Profile</a>
+				<a href="../profile/social-profile.html" class="active">Company Profile</a>
 				<a href="../profile/drive-email-link.html">Drive and Email Link</a>
 				<a href="../profile/purchase-history.html">Purchase History</a>
 				<a href="../profile/payment-details.html">Payment Details</a>
@@ -113,13 +116,26 @@
 
         <div class="container clear">
 			<section class="content full">
-				<h4>Social Profile</h4>
+				<h4>Company Profile</h4>
 				<div class="content-half">
+
+					<div class="input-wrap">
+						<div class="profile-photo-wrap clear">
+							<div class="photo" style="background-image: url(../../imgs/profile-photo.jpg);"></div>
+							<div class="text">
+								<p>Recommended dimentions of <b>150x150</b></p>
+								<a href="#" onclick="document.getElementById('imgupload').click();" class="button upload-photo">Change Photo</a>
+							</div>
+						</div>
+						
+						<input type="file" id="imgupload" style="display:none"/>
+					</div>
 
 					<div class="input-wrap">
 						<p>Company Name</p>
 						<input type="text">
 					</div>
+
 
 					<div class="input-wrap">
 						<p>Website</p>
