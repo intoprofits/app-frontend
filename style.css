@@ -273,10 +273,11 @@ main {
 
 .side-nav .side-menu a {
   display: block;
-  padding: .8rem;
+  padding: .8rem .3rem;
   color: #000;
   font-size: .8rem;
   border-left: 0.2rem solid #F4F5F7;
+  text-align: center;
 }
 
 .side-nav .side-menu a.active, .side-nav .side-menu a:hover {
@@ -290,10 +291,9 @@ main {
 
 .side-nav .side-menu a i {
   color: #828282;
-}
-
-.side-nav .side-menu a .title {
-  display: none;
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
 }
 
 .container {
@@ -640,20 +640,6 @@ footer {
   margin: 0 auto;
 }
 
-@media (min-width: 480px) {
-  .side-nav .side-menu a {
-    text-align: center;
-  }
-  .side-nav .side-menu a i {
-    display: block;
-    font-size: 1.5rem;
-    margin-bottom: .5rem;
-  }
-  .side-nav .side-menu a .title {
-    display: block;
-  }
-}
-
 @media (min-width: 550px) {
   #modal .modal-container iframe {
     height: 360px;
@@ -696,7 +682,6 @@ footer {
   }
   .side-nav .side-menu a i {
     display: inline-block;
-    font-size: 1.2rem;
     margin-bottom: 0;
     margin-right: 1rem;
   }
@@ -757,9 +742,10 @@ footer {
   }
   .container .content {
     padding: 0 2.8rem 2.8rem;
+    border-right: 1px solid #C9C9C9;
   }
   .container .content.last {
-    padding-left: 0;
+    border-right: none;
   }
   .container .content h4 {
     margin-bottom: 3rem;
@@ -769,8 +755,9 @@ footer {
     margin-bottom: 2rem;
   }
   #modal .modal-container {
-    max-width: 1000px;
+    max-width: 1380px;
     margin: 0 auto;
+    padding: 1.5rem;
   }
   #modal .modal-container a.closeModal {
     right: 1rem;
@@ -780,7 +767,7 @@ footer {
     font-size: 1.5rem;
   }
   #modal .modal-container iframe {
-    height: 580px;
+    height: 650px;
   }
 }
 

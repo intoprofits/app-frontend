@@ -31,7 +31,7 @@
 					<a href="#"><i class="fas fa-heart"></i>Refer a friend</a>
 					<a href="#"><i class="fab fa-facebook"></i>Community</a>
 					<a href="#"><i class="fas fa-question-circle"></i>Help</a>
-					<a href="#"><i class="fas fa-user"></i>My Profile</a>
+					<a href="../profile/personal-details.html"><i class="fas fa-user"></i>My Profile</a>
 					<a href="#"><i class="fas fa-lock-open"></i>Logout</a>
 				</nav>
 			</div>
@@ -66,9 +66,9 @@
 
 		<aside class="side-nav">
 			<nav class="side-menu links">
-				<a href="../supply-chain/po-creator.html"  title="P.O Creator"class="active"><i class="fas fa-folder-plus"></i><span class="title">P.O Creator</span></a>
-				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis"><i class="fas fa-chart-pie"></i><span class="title">Inventory Analysis</span></a>
-				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i><span class="title">My Products</span></a>
+				<a href="../supply-chain/po-creator.html"  title="P.O Creator"class="active"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
+				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
+				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i>My Products</a>
 			</nav>
 		</aside>
 		<!-- /sidenav -->
@@ -76,63 +76,68 @@
 		<div class="container clear">
 			
 			<section class="content">
-				<h4>P.O Creator</h4>
+				<h4>P.O. Creator</h4>
+
+				<div class="input-wrap">
+					<p>Select Language</p>
+					<select name="language" id="">
+						<option value="#">English</option>
+						<option value="#">Chinese</option>
+					</select>
+				</div>
+				
 				<div class="input-wrap">
 					<p>Select Supplier</p>
-					<select name="supplier" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
+					<select name="supplier" id="supplier">
+						<option value="Suplier One">Suplier One</option>
+						<option value="Suplier Two">Suplier Two</option>
+						<option value="Suplier Three">Suplier Three</option>
 					</select>
 				</div>
 
 				<div class="input-wrap">
 					<p>Select Shipping Address</p>
 					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
+						<option value="Sample Address 1">Sample Address 1</option>
+						<option value="Sample Address 2">Sample Address 2</option>
+						<option value="Sample Address 3">Sample Address 3</option>
 					</select>
 				</div>
 
 				<div class="input-wrap">
 					<p>Shipping Method</p>
 					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
+						<option value="#">Land</option>
+						<option value="#">Sea</option>
+						<option value="#">Air</option>
 					</select>
 				</div>
 
 				<div class="input-wrap">
 					<p>Product</p>
-					<select name="" id="">
-						<option hidden value="#">-- Select --</option>
-						<option value="#">Sample Dropdown 1</option>
-						<option value="#">Sample Dropdown 2</option>
-						<option value="#">Sample Dropdown 3</option>
+					<select name="product" id="product">
+						<option value="Product 1">Product 1</option>
+						<option value="Product 2">Product 2</option>
+						<option value="Product 3">Product 3</option>
 					</select>
 				</div>
 				
 				<div class="input-wrap">
 					<p>Order Quantity</p>
-					<input type="number" name="" id="">
+					<input type="number" value="1" min="1" name="quantity" id="quantity">
 				</div>
 				
 				<div class="input-wrap">
 					<p>Unit Cost</p>
-					<input type="text">
+					<input type="text" value="$0">
 				</div>
 				
 				<div class="input-wrap">
 					<p>Discount Request</p>
-					<input type="text">
+					<input type="text" value="$0">
 				</div>
 				
-				<a content='<h2 class="title">Review P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#"  class="button modal">Review & Send</a>
+				<a content='<h2 class="title">Review P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="addPO()" class="button">Save & Send</a><a href="#" class="button">Save as Template</a>' href="#"  class="button modal">Review</a>
 			</section>
 			<!-- /content -->
 			
@@ -141,15 +146,15 @@
 				<h4>Recent P.O's</h4>
 				<div class="po-item-wrap">
 						
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
+					<a content='<h2 class="title">Edit P.O</h2><iframe style="margin-bottom:1rem" width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="closeModalWrap()" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
 						<div class="po-info">
-							<p><b>Supplier:</b> David</p>
+							<p><b>Supplier:</b> Supplier 1</p>
 							<p><b>Product:</b> Hammer</p>
 							<p><b>Quantity:</b> 18</p>
 						</div>
 					</a>
 
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg2.jpg);">
+					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg2.jpg);">
 						<div class="po-info">
 							<p><b>Supplier:</b> James</p>
 							<p><b>Product:</b> Wallet</p>
@@ -157,23 +162,7 @@
 						</div>
 					</a>
 
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
-						<div class="po-info">
-							<p><b>Supplier:</b> John</p>
-							<p><b>Product:</b> Ballpen</p>
-							<p><b>Quantity:</b> 250</p>
-						</div>
-					</a>
-
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg2.jpg);">
-						<div class="po-info">
-							<p><b>Supplier:</b> John</p>
-							<p><b>Product:</b> Ballpen</p>
-							<p><b>Quantity:</b> 250</p>
-						</div>
-					</a>
-
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
+					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
 						<div class="po-info">
 							<p><b>Supplier:</b> John</p>
 							<p><b>Product:</b> Ballpen</p>
@@ -207,6 +196,42 @@
 
 		<p>Copyright Intorprofits 2020</p>
 		<script src="../../app.js"></script>
+
+		<script>
+			
+				
+			const getPO = (s, p, q) => {
+	
+				let recentPO = document.querySelector('.po-item-wrap');
+				let temp = recentPO.innerHTML;
+				recentPO.innerHTML = 
+				`<a content='<h2 class="title">Edit P.O</h2><iframe style="margin-bottom:1rem" width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="closeModalWrap()" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
+					<div class="po-info">
+						<p><b>Supplier:</b> ${s}</p>
+						<p><b>Product:</b> ${p}</p>
+						<p><b>Quantity:</b> ${q}</p>
+					</div>
+				</a>` + temp;
+				
+				console.log('tae');
+				closeModalWrap();
+			}
+
+			const addPO = (e) => {
+
+				let sup = document.getElementById('supplier'),
+				prod = document.getElementById('product'),
+				supplier = sup.options[sup.selectedIndex].value,
+				product = prod.options[prod.selectedIndex].value;
+				quantity = document.getElementById('quantity').value;
+
+				getPO(supplier, product, quantity)
+				console.log('done')
+				// console.log(e)
+			}
+
+			
+		</script>
 		
 	</footer>
 	<!-- /footer -->
