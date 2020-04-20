@@ -20,11 +20,11 @@
 			</div>
 			<div class="menu">
 				<nav class="main-nav">
+					<a href="#">Dashboard</a>
 					<a href="#" class="active">Supply Chain</a>
 					<a href="#">Advertising</a>
 					<a href="#">Finances</a>
 					<a href="#">R&amp;D</a>
-					<a href="#">KPI - Company Focus</a>
 				</nav>
 				<nav class="top-nav">
 					<a href="#"><i class="fas fa-heart"></i>Refer a friend</a>
@@ -49,11 +49,11 @@
 				</nav>
 			</div>
 			<nav class="main-nav">
+				<a href="#">Dashboard</a>
 				<a href="../supply-chain/po-creator.html" class="active">Supply Chain</a>
 				<a href="#">Advertising</a>
 				<a href="#">Finances</a>
 				<a href="#">R&D</a>
-				<a href="#">KPI</a>
 			</nav>
 		</div>
 		<!-- /desktop menu -->
@@ -65,17 +65,90 @@
 		
 		<aside class="side-nav">
 			<nav class="side-menu links">
-				<a href="../supply-chain/po-creator.html"  title="P.O Creator"><i class="fas fa-folder-plus"></i><span class="title">P.O Creator</span></a>
-				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis" class="active"><i class="fas fa-chart-pie"></i><span class="title">Inventory Analysis</span></a>
-				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i><span class="title">My Products</span></a>
+				<a href="../supply-chain/po-creator.html"  title="P.O Creator"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
+				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis" class="active"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
+				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i>My Products</a>
+				<a href="../supply-chain/contacts.html" title="My Contacts"><i class="fas fa-address-card"></i>My Contacts</a>
 			</nav>
 		</aside>
 		<!-- /sidenav -->
 
 		<div class="container clear">
 			<section class="content full">
-				<a content='<h2 class="title">Video Tutorial</h2><iframe src="https://www.youtube.com/embed/zMUucyGKVsU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'  href="" class="learn modal" >Learn <i class="fas fa-play-circle"></i></a>
-                <h4>Inventory Analysis</h4>
+				<a onclick="learnMore()" class="learn" >Learn <i class="fas fa-play-circle"></i></a>
+				<h4>Inventory Analysis</h4>
+
+				<a href="#" class="button"><i class="fas fa-tags"></i>Sort By Brand</a>
+				<a href="#" class="button"><i class="fas fa-calendar-alt"></i>Sort By Days of Stock</a>
+				<a href="#" class="button"><i class="fas fa-search"></i>Custom Filter</a>
+				
+				<div class="inventory-list-wrap">
+					<div class="inventory-label">
+						<span class="id">#</span>
+						<span class="img">Image</span>
+						<span class="title">Title</span>
+						<span class="current">Current Inventory</span>
+						<span class="ddlt">DDLT (Units)</span>
+						<span class="ss">SS (Units)</span>
+						<span class="rop">ROP (Units)</span>
+						<span class="sevenDayAverage">7 Day Average</span>
+						<span class="thirtyDayAverage">30 Day Average</span>
+						<span class="reOrder">Create PO</span>
+					</div>
+
+					<article class="inventory-list">
+
+						<!-- inventory list here -->
+						<script>
+
+							let inventoryList = document.querySelector('.inventory-list'),
+								products = [
+										{ id: "1", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Plate', asin: '6DSF645DGF7', sku: 'M34F098', lead: '10',safetystock: '21', current: "100", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
+										{ id: "2", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Spoon', asin: 'E9WE87R3W', sku: 'M34F098', lead: '8',safetystock: '18', current: "65", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
+										{ id: "3", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Fork', asin: 'C3V218E3', sku: 'M34F098', lead: '16',safetystock: '16', current: "800", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
+										{ id: "4", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Cup', asin: 'AD8F749AD', sku: 'M34F098', lead: '17',safetystock: '05', current: "1500", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
+									]
+					
+							const listProducts = (element, list) => {
+								list.forEach(e => {
+									element.innerHTML += 
+									`<div class="inventory-item">
+										<span class="id">${e.id}</span>
+										<span class="img"><img src="${e.img}" alt=""></span>
+										<span class="title">
+											<p class="name">${e.title}</p>
+											<p>ASIN: ${e.asin}</p>
+											<p>SKU: ${e.sku}</p>
+											<p>Lead Time: <a href="#">${e.lead}</a></p>
+											<p>Safety Stock: <a href="#">${e.safetystock}</a></p>
+										</span>
+										<span class="current">${e.current}</span>
+										<span class="ddlt">${e.ddlt}</span>
+										<span class="ss">${e.ss}</span>
+										<span class="rop">${e.rop}</span>
+										<span class="sevenDayAverage">
+											<p>Average:${e.sevenDayAv.average}</p>
+											<p>Re-Order Date: <a href="#">${e.sevenDayAv.reOrderDate}</a></p>
+											<p>Stock-Out Date: <a href="#">${e.sevenDayAv.stockOutDate}</a></p>
+										</span>
+										<span class="thirtyDayAverage">
+											<p>Average:${e.thirtyDayAv.average}</p>
+											<p>Re-Order Date: <a href="#">${e.thirtyDayAv.reOrderDate}</a></p>
+											<p>Stock-Out Date: <a href="#">${e.thirtyDayAv.stockOutDate}</a></p>
+										</span>
+										<span class="reOrder"><a href="#" class="button">Create P.O.</a></span>
+									</div>`;
+								});
+							};
+					
+							listProducts(inventoryList, products);
+					
+						</script>
+						<!-- / inventory list here -->
+
+					</article>
+				</div>
+
             </section>
 		</div>
 
@@ -83,21 +156,21 @@
 	<!-- /main -->
 	
 	<footer>
-		<div id="modal">
+
+		<div id="learnMoreModal" class="modal learn-more">
 			<div class="modal-container">
-				<a href="#" class="closeModal"><i class="fas fa-times"></i></a>
+				<a onclick="closeModal()" class="closeModal"><i class="fas fa-times"></i></a>
 				<div class="modal-contents">
-					<!-- data will be inserted here -->
+					<h2 class="title">Video Tutorial</h2>
+					<iframe src="https://www.youtube.com/embed/bMPOMT251mQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 				</div>
 			</div>
 		</div>
-		<!-- /modal -->
+		<!-- /learn more modal -->
 		
 		<p>Copyright Intorprofits 2020</p>
 		<script src="../../app.js"></script>
-		<link rel="stylesheet" href="../../style.css">
-		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/9bdf3cc272.js" crossorigin="anonymous"></script>
+
 	</footer>
 	<!-- /footer -->
 </body>

@@ -67,8 +67,8 @@
 			<nav class="side-menu links">
 				<a href="../supply-chain/po-creator.html"  title="P.O Creator"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
 				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
-				<a href="../supply-chain/products.html" title="My Products" class="active"><i class="fas fa-box-open"></i>My Products</a>
-				<a href="../supply-chain/contacts.html" title="My Contacts"><i class="fas fa-address-card"></i>My Contacts</a>
+				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i>My Products</a>
+				<a href="../supply-chain/contacts.html" title="My Contacts" class="active"><i class="fas fa-address-card"></i>My Contacts</a>
 			</nav>
 		</aside>
 		<!-- /sidenav -->
@@ -76,10 +76,8 @@
 		<div class="container clear">
 
 			<section class="content full item-list">
-				<h4>Products</h4>
-				<p>3 Products found</p>
-				<a onclick="learnMore()" class="learn" >Learn <i class="fas fa-play-circle"></i></a>
-
+				<h4>Suppliers</h4>
+				<p>3 Suppliers found</p>
 				<article class="item-list-group">
 					<div class="item-breadcrubs clear">
 						<div class="clear">
@@ -95,91 +93,128 @@
 					<div class="item-list">
 
 						<div class="item label clear">
-							<p>Product ASIN</p>
-							<p>Product SKU</p>
-							<p>Product Cost</p>
-							<p>Shipping Cost</p>
-							<p>Supplier</p>
-							<p>Description</p>
+							<p>Name</p>
+							<p>Address</p>
+							<p>Phone</p>
+							<p>Email</p>
+							<p>WeChat</p>
+							<p>Skype</p>
 						</div>
 
-						<article class="product-list">
-							
-							<!-- list the products here -->
+						<article class="supplier-list">
+
+							<!-- list the suppliers here -->
 							<script>
 
-								let productList = document.querySelector('.product-list'),
-									products = [{ asin: '9871236', sku: '2', pCost: '$32.50', sCost: '$9.03', supplier: 'Tambis LLC', desc: 'Hammer' }]
-						
-								const listProducts = (element, list) => {
+								let supplierList = document.querySelector('.supplier-list'),
+									suppliers = [ { name: 'Tambis LLC', address: 'PO Box 21', phone: '(32)5-3215-3215', email: 'tambis@gmail.com', wechat: 'tambiscontact', skype: 'tambiscontact' }];
+
+								const listSuppliers = (element, list) => {
 									list.forEach(e => {
 										element.innerHTML += 
 										`<div class="item clear">
-											<p class="asin">${e.asin}</p>
-											<p class="sku">${e.sku}</p>
-											<p class="pCost">${e.pCost}</p>
-											<p class="sCost">${e.sCost}</p>
-											<p class="supplier">${e.supplier}</p>
-											<p class="description">${e.desc}</p>
+											<p class="name">${e.name}</p>
+											<p class="address">${e.address}</p>
+											<p class="phone">${e.phone}</p>
+											<p class="email">${e.email}</p>
+											<p class="wechat">${e.wechat}</p>
+											<p class="skype">${e.skype}</p>
 										</div>`;
 									});
 								};
 
-								const addProduct = () => {
-
-									let newProduct = [{ 
-											asin: document.querySelector('#modalItem #asin').value,
-											sku: document.querySelector('#modalItem #sku').value,
-											pCost: '$' + document.querySelector('#modalItem #prodcost').value,
-											sCost: '$' + document.querySelector('#modalItem #shipcost').value,
-											supplier: 'Sample Dropdown 1',
-											desc: document.querySelector('#modalItem #desc').value
+								const addSupplier = () => {
+									let newSupplier = [{ 
+											name: document.querySelector('#modalItem #name').value,
+											address: document.querySelector('#modalItem #address').value,
+											phone: document.querySelector('#modalItem #phone').value,
+											email: document.querySelector('#modalItem #email').value,
+											wechat: document.querySelector('#modalItem #wechat').value,
+											skype: document.querySelector('#modalItem #skype').value
 										}],
-										updatedProducts = products.push = newProduct;
+										updatedSuppliers = suppliers.push = newSupplier;
 
 									toggleLoading();
 									closeModal();
 									
 									//emulate saving by adding delay
 									setTimeout(() =>{ 
-										listProducts(productList, updatedProducts);
+										listSuppliers(supplierList, updatedSuppliers);
 										toggleLoading();
 
-										document.querySelector('#modalItem #asin').value = '';
-										document.querySelector('#modalItem #sku').value = ''
-										document.querySelector('#modalItem #prodcost').value = ''
-										document.querySelector('#modalItem #shipcost').value = ''
-										document.querySelector('#modalItem #desc').value = ''
+										document.querySelector('#modalItem #name').value = '';
+										document.querySelector('#modalItem #address').value = '';
+										document.querySelector('#modalItem #phone').value = '';
+										document.querySelector('#modalItem #email').value = '';
+										document.querySelector('#modalItem #wechat').value = '';
+										document.querySelector('#modalItem #skype').value = '';
 									}, 1500);
 
 								};
 						
-								listProducts(productList, products);
+								listSuppliers(supplierList, suppliers);
 						
 							</script>
 							<!-- / list the products here -->
+
 
 						</article>
 
 					</div>
 					<div class="item-per-page">
-						<input type="number" name="" id="" value="10"> Products per page
+						<input type="number" name="" id="" value="3"> Supplier per page
 					</div>
-					<a href="#" onclick="addItemModal()" class="button"><i class="fas fa-plus"></i> Add Product</a>
+					<a href="#" onclick="addItemModal()" class="button"><i class="fas fa-plus"></i> Add Supplier</a>
 				</article>
-				<!-- product list -->
 			</section>
-			<!-- product list -->
+			<!-- suppliers list -->
 
+			<section class="content full item-list">
+				<h4>Freight</h4>
+				<p>2 Freight found</p>
+				<article class="item-list-group">
+					<div class="item-breadcrubs clear">
+						<div class="clear">
+							<a class="prev"><i class="fas fa-chevron-left"></i></a>
+							<nav>
+								<a href="#" class="active">1</a>
+							</nav>
+							<a class="next"><i class="fas fa-chevron-right"></i></a>
+						</div>
+					</div>
+					<div class="item-list">
 
-			
+						<div class="item label clear">
+							<p>Name</p>
+							<p>Address</p>
+							<p>Phone</p>
+							<p>Email</p>
+							<p>WeChat</p>
+							<p>Skype</p>
+						</div>
+
+						<article class="freight-list">
+							<div class="item clear">
+								<p>No items found</p>
+							</div>
+							
+
+						</article>
+
+					</div>
+					<div class="item-per-page">
+						<input type="number" name="" id="" value="3"> Freight per page
+					</div>
+					<a href="#modal" class="button" onclick="alert('Same function as above.')"><i class="fas fa-plus"></i> Add Freight</a>
+				</article>
+			</section>
+			<!-- freight list -->
 
 		</div>
 
 	</main>
 	<!-- /main -->
 
-	
 	<footer>
 
 		<div id="modalItem" class="modal add-prod">
@@ -187,49 +222,45 @@
 				<a href="#" onclick="closeModal()" class="closeModal"><i class="fas fa-times"></i></a>
 				<div class="modal-contents">
 					<section class="content full">
-						<h4>Add Product</h4>
+						<h4>Add Supplier</h4>
 		
 							<div class="input-wrap">
-								<p>Product Asin</p>
-								<input id="asin" type="text">
+								<p>Name</p>
+								<input id="name" type="text">
 							</div>
 		
 							<div class="input-wrap">
-								<p>Product SKU</p>
-								<input id="sku" type="text">
+								<p>Address</p>
+								<input id="address" type="text">
 							</div>
 		
 							<div class="input-wrap">
-								<p>Product Cost</p>
-								<input id="prodcost" type="text">
+								<p>Phone</p>
+								<input id="phone" type="text">
 							</div>
 
 							<div class="input-wrap">
-								<p>Shipping Cost</p>
-								<input id="shipcost" type="text">
-							</div>
-		
-							<div class="input-wrap">
-								<p>Supplier</p>
-								<select name="" id="">
-									<option value="#">Sample Dropdown 1</option>
-									<option value="#">Sample Dropdown 2</option>
-									<option value="#">Sample Dropdown 3</option>
-								</select>
+								<p>Email</p>
+								<input id="email" type="email">
 							</div>
 							
 							<div class="input-wrap">
-								<p>Description</p>
-								<input id="desc" type="text">
+								<p>WeChat</p>
+								<input id="wechat" type="text">
+							</div>
+
+							<div class="input-wrap">
+								<p>Skype</p>
+								<input id="skype" type="text">
 							</div>
 							
-							<a href="#" onclick="addProduct()" class="button">Save</a>
+							<a href="#" onclick="addSupplier()" class="button">Save</a>
 		
 					</section>
 				</div>
 			</div>
 		</div>
-		<!-- /add product modal pop-up -->
+		<!-- /add supplier modal pop-up -->
 
 		<div id="learnMoreModal" class="modal learn-more">
 			<div class="modal-container">

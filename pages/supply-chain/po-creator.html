@@ -50,11 +50,11 @@
 				</nav>
 			</div>
 			<nav class="main-nav">
+				<a href="#">Dashboard</a>
 				<a href="../supply-chain/po-creator.html" class="active">Supply Chain</a>
 				<a href="#">Advertising</a>
 				<a href="#">Finances</a>
 				<a href="#">R&D</a>
-				<a href="#">KPI</a>
 			</nav>
 		</div>
 		<!-- /desktop menu -->
@@ -69,20 +69,21 @@
 				<a href="../supply-chain/po-creator.html"  title="P.O Creator"class="active"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
 				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
 				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i>My Products</a>
+				<a href="../supply-chain/contacts.html" title="My Contacts"><i class="fas fa-address-card"></i>My Contacts</a>
 			</nav>
 		</aside>
 		<!-- /sidenav -->
 
 		<div class="container clear">
 			
-			<section class="content">
+			<section class="content"  data-title="Review P.O.">
 				<h4>P.O. Creator</h4>
 
 				<div class="input-wrap">
 					<p>Select Language</p>
 					<select name="language" id="">
 						<option value="#">English</option>
-						<option value="#">Chinese</option>
+						<option value="#">English & Chinese</option>
 					</select>
 				</div>
 				
@@ -137,101 +138,166 @@
 					<input type="text" value="$0">
 				</div>
 				
-				<a content='<h2 class="title">Review P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="addPO()" class="button">Save & Send</a><a href="#" class="button">Save as Template</a>' href="#"  class="button modal">Review</a>
+				<a class="button" onclick="createPO(this)">Review</a>
 			</section>
 			<!-- /content -->
 			
-			<section class="content last">
-				<a content='<h2 class="title">Video Tutorial</h2><iframe src="https://www.youtube.com/embed/bMPOMT251mQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'  href="" class="learn modal" >Learn <i class="fas fa-play-circle"></i></a>
-				<h4>Recent P.O's</h4>
-				<div class="po-item-wrap">
-						
-					<a content='<h2 class="title">Edit P.O</h2><iframe style="margin-bottom:1rem" width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="closeModalWrap()" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
-						<div class="po-info">
-							<p><b>Supplier:</b> Supplier 1</p>
-							<p><b>Product:</b> Hammer</p>
-							<p><b>Quantity:</b> 18</p>
-						</div>
-					</a>
+			<section class="content last" data-title="Create Custom P.O.">
+				<a onclick="learnMore()" class="learn" >Learn <i class="fas fa-play-circle"></i></a>
+				<h4>Recent P.O.'s</h4>
+				<div class="po-item-wrap" data-title="Edit P.O.">
 
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg2.jpg);">
-						<div class="po-info">
-							<p><b>Supplier:</b> James</p>
-							<p><b>Product:</b> Wallet</p>
-							<p><b>Quantity:</b> 100</p>
-						</div>
-					</a>
 
-					<a content='<h2 class="title">Edit P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
-						<div class="po-info">
-							<p><b>Supplier:</b> John</p>
-							<p><b>Product:</b> Ballpen</p>
-							<p><b>Quantity:</b> 250</p>
-						</div>
-					</a>
+					<!-- list of POs here -->
+					<script>
+
+						let POList = document.querySelector('.po-item-wrap'),
+							POs = [{ product: 'Cup', quantity: '100', supplier: 'Batman LLC'}];
+										
+						const listPOs = (element, list) => {
+							list.forEach(e => {
+								element.innerHTML += 
+								`<a href="#" onclick="createPO(this)" class="po-item" style="background-image: url(../../imgs/po-bg.jpg);">
+									<div class="po-info">
+										<p><b>Supplier:</b> ${e.supplier}</p>
+										<p><b>Product:</b> ${e.product}</p>
+										<p><b>Quantity:</b> ${e.quantity}</p>
+									</div>
+								</a>`;
+							});
+						}
+
+						listPOs(POList, POs);
+					
+					</script>
+					<!-- list of POs here -->
 
 				</div>
-				<a content='<h2 class="title">Create Custom P.O</h2><iframe width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="../supply-chain/po-creator.html" class="button">Save & Send</a>' href="#" class="button modal">Create Custom P.O</a>
-				<a content='<div class="container"><section class="content"><h4>Saved Templates</h4><div class="po-item-wrap clear"><a class="po-item" style="background-image: url(../../imgs/po-bg.jpg);"><div class="po-info"><p><b>Supplier:</b> David</p><p><b>Product:</b> Hammer</p><p><b>Quantity:</b> 18</p></div></a><a class="po-item" style="background-image: url(../../imgs/po-bg2.jpg);"><div class="po-info"><p><b>Supplier:</b> James</p><p><b>Product:</b> Wallet</p><p><b>Quantity:</b> 100</p></div></a></div></section></div>' href="#" class="button modal">Saved Templates</a>
+				<a onclick="createPO(this)" class="button">Create Custom P.O.</a>
+				<a onclick="savedTemp()" class="button">Saved Templates</a>
 			</section>
 			<!-- /content -->
-
-			
 
 		</div>
 	</main>
 	<!-- /main -->
 	
 	<footer>
+		<p>Copyright Intorprofits 2020</p>
 
-		<div id="modal">
+		<div id="learnMoreModal" class="modal learn-more">
 			<div class="modal-container">
-				<a href="#" class="closeModal"><i class="fas fa-times"></i></a>
+				<a onclick="closeModal()" class="closeModal"><i class="fas fa-times"></i></a>
 				<div class="modal-contents">
-					<!-- data will be inserted here -->
+					<h2 class="title">Video Tutorial</h2>
+					<iframe src="https://www.youtube.com/embed/bMPOMT251mQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 				</div>
 			</div>
 		</div>
-		<!-- /modal -->
+		<!-- /learn more modal -->
+		
+		<div id="POModal" class="modal po-editor">
+			<div class="modal-container">
+				<a onclick="closeModal()" class="closeModal"><i class="fas fa-times"></i></a>
+				<div class="modal-contents">
+					<h3 class="title"></h3>
+					<iframe width="1380" height="645" style="margin-bottom: 1rem;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+					<a onclick="addPO()" class="button">Save & Send</a>
+					<a onclick="savePO()" class="button">Save as Template</a>
+				</div>
+			</div>
+		</div>
+		<!-- /P.O. modal -->
 
-		<p>Copyright Intorprofits 2020</p>
-		<script src="../../app.js"></script>
+		<div id="savedPOs" class="modal saved-pos">
+			<div class="modal-container">
+				<a onclick="closeModal()" class="closeModal"><i class="fas fa-times"></i></a>
+				<div class="modal-contents content full saved">
+					<h4>Saved Templates</h4>
+					<div class="po-item-wrap saved"  data-title="Create Custom P.O.">
 
-		<script>
-			
-				
-			const getPO = (s, p, q) => {
-	
-				let recentPO = document.querySelector('.po-item-wrap');
-				let temp = recentPO.innerHTML;
-				recentPO.innerHTML = 
-				`<a content='<h2 class="title">Edit P.O</h2><iframe style="margin-bottom:1rem" width="1380" height="645" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSsPTm9V9-qK5jh45YLuy1QVTSP3uqO-i1YYcAQBP4fJrvXFpYS0cDP4-ME2QwZoQ/pubhtml?gid=1164514586&amp;single=true&amp;widget=true&amp;headers=false"></iframe><a href="#" onclick="closeModalWrap()" class="button">Update</a>' href="#" class="po-item modal" style="background-image: url(../../imgs/po-bg.jpg);">
-					<div class="po-info">
-						<p><b>Supplier:</b> ${s}</p>
-						<p><b>Product:</b> ${p}</p>
-						<p><b>Quantity:</b> ${q}</p>
+						<!-- / list of saved POs -->
+						<script>
+							let savedPOList = document.querySelector('.po-item-wrap.saved'),
+								savedPOs = [{ product: 'Cup', quantity: '100', supplier: 'Batman LLC'}];
+
+							listPOs(savedPOList, savedPOs);
+						</script>
+						<!-- / list of saved POs -->
+
 					</div>
-				</a>` + temp;
-				
-				console.log('tae');
-				closeModalWrap();
-			}
+				</div>
+			</div>
+		</div>
+		<!-- /P.O. modal -->
 
-			const addPO = (e) => {
+		<div class="loading-bar"></div>
+		<!-- /loading-bar -->
+		
 
-				let sup = document.getElementById('supplier'),
-				prod = document.getElementById('product'),
-				supplier = sup.options[sup.selectedIndex].value,
-				product = prod.options[prod.selectedIndex].value;
-				quantity = document.getElementById('quantity').value;
+		<!-- custom script for this page-->
+		<script src="../../app.js"></script>
+		<script>
 
-				getPO(supplier, product, quantity)
-				console.log('done')
-				// console.log(e)
-			}
+			const savedTemp = () => { document.querySelector('#savedPOs').classList.add('active') },
 
-			
+				createPO = (e) => {
+
+					let title = e.parentNode.dataset.title;
+					document.querySelector('#POModal .title').innerHTML = title;
+
+					if (e.parentNode.parentNode.classList.contains("saved")) {
+						document.querySelector('#POModal').classList.add('active');
+						document.querySelector('#savedPOs').classList.remove('active');
+					} else {
+						document.querySelector('#POModal').classList.add('active');
+					}
+				},
+
+				addPO = () => {
+					let sup = document.getElementById('supplier'),
+						prod = document.getElementById('product'),
+						newPO = [{ 
+							supplier: sup.options[sup.selectedIndex].value,
+							product: prod.options[prod.selectedIndex].value,
+							quantity: document.getElementById('quantity').value
+						}],
+						updatedPOs = POs.push = newPO;
+							
+					toggleLoading();
+					document.querySelector('#POModal').classList.remove('active');
+					
+					//emulate saving by adding delay
+					setTimeout(() =>{ 
+						listPOs(POList, updatedPOs);
+						toggleLoading();
+					}, 1500);
+
+				},
+
+				savePO = () => {
+					let sup = document.getElementById('supplier'),
+						prod = document.getElementById('product'),
+						newPO = [{ 
+							supplier: sup.options[sup.selectedIndex].value,
+							product: prod.options[prod.selectedIndex].value,
+							quantity: document.getElementById('quantity').value
+						}],
+						updatedPOs = savedPOs.push = newPO;
+
+					toggleLoading();
+					
+					//emulate saving by adding delay
+					setTimeout(() =>{ 
+						listPOs(savedPOList, updatedPOs);
+						toggleLoading();
+						document.querySelector('#POModal').classList.remove('active');
+					}, 1500);
+					
+				}
+	
 		</script>
+		<!-- / custom script -->
 		
 	</footer>
 	<!-- /footer -->

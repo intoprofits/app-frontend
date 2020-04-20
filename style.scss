@@ -63,6 +63,7 @@ a {
     text-decoration: none;
     color: $blue;
     transition: all .2s;
+    cursor: pointer;
     &:hover {
         opacity: .9;
     }
@@ -245,10 +246,11 @@ main {
     .side-menu {
         a {
             display: block;
-            padding: .8rem;
+            padding: .8rem .3rem;
             color: $black;
             font-size: .8rem;
             border-left: .2rem solid $blueGray;
+            text-align: center;
             &.active, &:hover {
                 background: $blueGray;
                 border-left: .2rem solid $gray1;
@@ -258,10 +260,13 @@ main {
             }
             i {
                 color: $gray1;
+                display: block;
+                font-size: 1.2rem;
+                margin-bottom: .5rem;
             }
-            .title {
-                display: none;
-            }
+            // .title {
+            //     display: none;
+            // }
         }
     }
 }
@@ -377,6 +382,75 @@ footer {
     }
 }
 
+// Inventory List
+.inventory-list-wrap {
+
+
+    .inventory-label {
+        background: $blueGray1;
+        display: flex;
+        align-items: center;
+        border-bottom: 1.5px solid $white;
+        span {
+            float: left;
+            padding: .8rem 1.2rem;
+            box-sizing: border-box;
+            &.id { width: 4%; }
+            &.img { width: 8%; }
+            &.title { width: 15%; }
+            &.current { width: 11%; }
+            &.ddlt { width: 8%; }
+            &.ss { width: 8%; }
+            &.rop { width: 8%; }
+            &.sevenDayAverage { width: 15%; }
+            &.thirtyDayAverage { width: 15%; }
+            &.reOrder { width: 8%; }
+        }
+    }
+    .inventory-list {
+    
+        .inventory-item {
+            background: $blueGray;
+            display: flex;
+            border-bottom: 1.5px solid $white;
+            align-items: center;
+            color: $gray1;
+            span {
+                float: left;
+                padding: .8rem 1.2rem;
+                box-sizing: border-box;
+                &.id { width: 4%; }
+                &.img { width: 8%; }
+                &.title { width: 17%; }
+                &.current { width: 11%; }
+                &.ddlt { width: 8%; }
+                &.ss { width: 8%; }
+                &.rop { width: 8%; }
+                &.sevenDayAverage { width: 14%; }
+                &.thirtyDayAverage { width: 14%; }
+                &.reOrder { width: 8%; 
+                    a.button{
+                        display: block;
+                        padding: .5rem 0;
+                        margin: 0;
+                        font-size: .7rem;
+                    }
+                }
+            }
+            p {
+                font-size: .8rem;
+                margin-bottom: .5rem;
+                &.name {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
 
 // Login 
 .login-container {
@@ -469,7 +543,7 @@ footer {
         }
         .item {
             background:$gray;
-            border-bottom: .01rem solid $white;
+            border-bottom: 1.5px solid $white;
             color: $gray1;
             font-size: .9rem;
             &.label {
@@ -510,6 +584,7 @@ footer {
         border-radius: 50%;
         display: inline-block;
         margin-right: 1rem;
+        border: $border-light;
     }
     .text {
         display: inline-block;
@@ -526,7 +601,7 @@ footer {
 
 
 // Modal
-#modal {
+.modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -538,20 +613,71 @@ footer {
     display: none;
     overflow-x: hidden;
     overflow-y: auto;
+    padding: 4rem 2rem 0;
+    box-sizing: border-box;
+
     &.active {
-        display: flex;
+        display: block;
         align-items: center;
     }
+
+    &.learn-more {
+        .modal-container {
+            padding: 1rem;
+            max-width: 960px;
+
+            iframe {
+                height: 250px;
+                margin-bottom: 1.5rem;
+            }
+            
+        }
+    }
+
+    &.po-editor {
+        .modal-container {
+            padding: 1rem;
+            max-width: 1410px;
+
+            iframe {
+                height: 500px;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    &.saved-pos {
+        .modal-container {
+            padding: 1rem;
+            max-width: 800px;
+            min-height: 50vh;
+
+            h4 {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    &.add-prod {
+        .modal-container {
+            max-width: 600px;
+
+            h4 {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+
     .modal-container {
         width: 100%;
         display: block;
-        margin: 1rem;
         border: 1px solid #C9C9C9;
         padding: .5rem;
         background: #fff;
         font-size: .9rem;
         text-align: left;
         position: relative;
+        box-sizing: border-box;
+        margin: 0 auto;
         a.closeModal {
             position: absolute;
             top: 0.6rem;
@@ -568,37 +694,59 @@ footer {
             display: block;
             margin-bottom: 1.5rem;
             width: 100%;
-            height: 250px;
             margin: 0 auto;
         }
     }     
 }
 
-@media (min-width: 480px) {
-    .side-nav {
-        .side-menu {
-            a {
-                text-align: center;
-                i {
-                    display: block;
-                    font-size: 1.5rem;
-                    margin-bottom: .5rem;
-                }
-                .title {
-                    display: block;
-                }
-            }
+
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: $white;
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+
+    &.active {
+        display: block;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20%;
+            height: 5px;
+            background-color: $blue;
+            box-shadow: 10px 0 30px 15px $blue, -10px 0 30px 15px $blue;
+            animation: loadBar 2s cubic-bezier(.09,.89,.7,.71) infinite;
         }
     }
 }
+@keyframes loadBar {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
 
+
+
+// Media Queries 
 @media (min-width: 550px) {
-    #modal {
-        .modal-container {
-            iframe {
-                height: 360px;
-            }
-        }     
+    .modal {
+        &.learn-more {
+            .modal-container {
+                iframe {
+                    height: 360px;
+                }
+            }  
+        }
     }
 
     // Company Profile
@@ -620,7 +768,7 @@ footer {
         &.button {
             padding: 1rem 2rem;
             display: inline-block;
-            margin-right: 2rem;
+            margin-right: 1rem;
         }
     }
 
@@ -654,7 +802,6 @@ footer {
                 text-align: left;
                 i {
                     display: inline-block;
-                    font-size: 1.2rem;
                     margin-bottom: 0;
                     margin-right: 1rem;
                 }
@@ -679,16 +826,19 @@ footer {
             &.full {
                 float: none;
                 width: 100%;
+                border-right: 0;
             }
         }
     }
 
-    #modal {
-        .modal-container {
-            iframe {
-                height: 420px;
+    .modal {
+        &.learn-more {
+            .modal-container {
+                iframe {
+                    height: 420px;
+                }
             }
-        }     
+        } 
     }
     
 }
@@ -744,8 +894,10 @@ footer {
         }
         .content {
             padding: 0 2.8rem 2.8rem;
+            border-right: $border;
             &.last {
-                padding-left: 0;
+                // padding-left: 0;
+                border-right: none;
             }
             h4 {
                 margin-bottom: 3rem;
@@ -760,11 +912,31 @@ footer {
         }
     }
 
+    .modal {
+        &.learn-more {
+            .modal-container {
+                iframe {
+                    height: 420px;
+                }
+            }
+        } 
+    }
 
-    #modal {
+
+    .modal {
+        &.learn-more {
+            .modal-container {
+    
+                iframe {
+                    height: 500px;
+                }
+                
+            }
+        }
         .modal-container {
-            max-width: 1000px;
+            max-width: 1380px;
             margin: 0 auto;
+            padding: 1.5rem;
             a.closeModal {
                 right: 1rem;
                 font-size: 2rem;
@@ -772,9 +944,7 @@ footer {
             .title {
                 font-size: 1.5rem;
             }
-            iframe {
-                height: 580px;
-            }
+           
         }     
     }
 

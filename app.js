@@ -1,39 +1,57 @@
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
     mobileMenu = document.querySelector('.mobile-menu .menu'),
-    closeModal = document.querySelector('a.closeModal'),
     innerModal = document.querySelector('.modal-contents'),
-    modal = document.querySelector('#modal');
+    loadingBar = document.querySelector('.loading-bar'),
+    modal = document.querySelector('.modal.active');
     
 
 // functions
-function showMenu() {
+const showMenu = () => {
     mobileMenu.classList.toggle('show');
 }
 
-
-function openModal() {
-    [].forEach.call(document.querySelectorAll('a.modal'), function(e) { 
-		e.addEventListener('click', function(e) {
-            e.preventDefault()
-            
-
-            let content = e.target.attributes.content.value
-
-            innerModal.innerHTML = content
-            modal.classList.add('active')
-            
-		})
-    });
-    
-    closeModal.addEventListener('click', function(e) {
-        e.preventDefault()
-
-        modal.classList.remove('active')
-    });
+const learnMore = () => {
+    document.querySelector('#learnMoreModal').classList.add('active') 
 }
+
+const closeModal = () => {
+    [].forEach.call(document.querySelectorAll('.modal'), function(e) {
+        e.classList.remove('active'); 
+    })
+}
+
+const addItemModal = () => {
+    document.querySelector('#modalItem').classList.toggle('active');
+}
+
+
+const toggleLoading = () => {
+    document.querySelector('.loading-bar').classList.toggle('active') 
+}
+
+// function openModal() {
+//     [].forEach.call(document.querySelectorAll('a.modal'), function(e) { 
+// 		e.addEventListener('click', function(e) {
+//             e.preventDefault()
+            
+
+//             let content = e.target.attributes.content.value
+
+//             innerModal.innerHTML = content
+//             modal.classList.add('active')
+            
+// 		})
+//     });
+    
+//     closeModal.addEventListener('click', function(e) {
+//         e.preventDefault()
+
+//         modal.classList.remove('active')
+//     });
+// }
 
 
 // call functions
 // mobileMenu()
-openModal()
+// openModal()
