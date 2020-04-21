@@ -21,8 +21,8 @@
 			<div class="menu">
 				<nav class="main-nav">
 					<a href="#">Dashboard</a>
-					<a href="#" class="active">Supply Chain</a>
-					<a href="#">Advertising</a>
+					<a href="#">Supply Chain</a>
+					<a href="#" class="active">Advertising</a>
 					<a href="#">Finances</a>
 					<a href="#">R&amp;D</a>
 				</nav>
@@ -50,8 +50,8 @@
 			</div>
 			<nav class="main-nav">
 				<a href="#">Dashboard</a>
-				<a href="../supply-chain/inventory-analysis.html" class="active">Supply Chain</a>
-				<a href="../advertising/day-parting-tool.html">Advertising</a>
+				<a href="../supply-chain/inventory-analysis.html">Supply Chain</a>
+				<a href="../advertising/day-parting-tool.html" class="active">Advertising</a>
 				<a href="../finances/budgeting.html">Finances</a>
 				<a href="#">R&D</a>
 			</nav>
@@ -65,114 +65,18 @@
 
 		<aside class="side-nav">
 			<nav class="side-menu links">
-				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
-				<a href="../supply-chain/po-creator.html"  title="P.O Creator"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
-				<a href="../supply-chain/products.html" title="My Products" class="active"><i class="fas fa-box-open"></i>My Products</a>
-				<a href="../supply-chain/contacts.html" title="My Contacts"><i class="fas fa-address-card"></i>My Contacts</a>
+				<a href="../advertising/day-parting-tool.html" title="Day Parting Tool" class="active"><i class="fas fa-wrench"></i>Day Parting Tool</a>
+				<a href="../advertising/bulk-uploader.html" title="Bulk Uploader"><i class="fas fa-file-upload"></i>Bulk Uploader</a>
 			</nav>
 		</aside>
 		<!-- /sidenav -->
 
 		<div class="container clear">
 
-			<section class="content full item-list">
-				<h4>Products</h4>
-				<p>3 Products found</p>
+			<section class="content full">
+				<h4>Day Parting Tool</h4>
 				<a onclick="learnMore()" class="learn" >Learn <i class="fas fa-play-circle"></i></a>
-
-				<article class="item-list-group">
-					<div class="item-breadcrubs clear">
-						<div class="clear">
-							<a class="prev"><i class="fas fa-chevron-left"></i></a>
-							<nav>
-								<a href="#" class="active">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-							</nav>
-							<a class="next"><i class="fas fa-chevron-right"></i></a>
-						</div>
-					</div>
-					<div class="item-list">
-
-						<div class="item label clear">
-							<p>Product ASIN</p>
-							<p>Product SKU</p>
-							<p>Product Cost</p>
-							<p>Shipping Cost</p>
-							<p>Supplier</p>
-							<p>Description</p>
-						</div>
-
-						<article class="product-list">
-							
-							<!-- list the products here -->
-							<script>
-
-								let productList = document.querySelector('.product-list'),
-									products = [{ asin: '9871236', sku: '2', pCost: '$32.50', sCost: '$9.03', supplier: 'Tambis LLC', desc: 'Hammer' }]
-						
-								const listProducts = (element, list) => {
-									list.forEach(e => {
-										element.innerHTML += 
-										`<div class="item clear">
-											<p class="asin">${e.asin}</p>
-											<p class="sku">${e.sku}</p>
-											<p class="pCost">${e.pCost}</p>
-											<p class="sCost">${e.sCost}</p>
-											<p class="supplier">${e.supplier}</p>
-											<p class="description">${e.desc}</p>
-										</div>`;
-									});
-								};
-
-								const addProduct = () => {
-
-									let newProduct = [{ 
-											asin: document.querySelector('#modalItem #asin').value,
-											sku: document.querySelector('#modalItem #sku').value,
-											pCost: '$' + document.querySelector('#modalItem #prodcost').value,
-											sCost: '$' + document.querySelector('#modalItem #shipcost').value,
-											supplier: 'Sample Dropdown 1',
-											desc: document.querySelector('#modalItem #desc').value
-										}],
-										updatedProducts = products.push = newProduct;
-
-									toggleLoading();
-									closeModal();
-									
-									//emulate saving by adding delay
-									setTimeout(() =>{ 
-										listProducts(productList, updatedProducts);
-										toggleLoading();
-
-										document.querySelector('#modalItem #asin').value = '';
-										document.querySelector('#modalItem #sku').value = ''
-										document.querySelector('#modalItem #prodcost').value = ''
-										document.querySelector('#modalItem #shipcost').value = ''
-										document.querySelector('#modalItem #desc').value = ''
-									}, 1500);
-
-								};
-						
-								listProducts(productList, products);
-						
-							</script>
-							<!-- / list the products here -->
-
-						</article>
-
-					</div>
-					<div class="item-per-page">
-						<input type="number" name="" id="" value="10"> Products per page
-					</div>
-					<a href="#" onclick="addItemModal()" class="button"><i class="fas fa-plus"></i> Add Product</a>
-				</article>
-				<!-- product list -->
 			</section>
-			<!-- product list -->
-
-
-			
 
 		</div>
 

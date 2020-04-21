@@ -901,7 +901,7 @@ footer {
   .side-nav {
     background: none;
     border-right: 1px solid #C9C9C9;
-    min-width: 210px;
+    min-width: 220px;
     display: block;
   }
   .side-nav .side-menu a {
@@ -959,7 +959,7 @@ footer {
     margin: 3rem 0;
   }
   .side-nav {
-    min-width: 250px;
+    min-width: 260px;
   }
   .side-nav .side-menu a {
     font-size: 1rem;
