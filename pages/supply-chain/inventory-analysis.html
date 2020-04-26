@@ -6,9 +6,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<link href="../../imgs/icon.ico" rel="shortcut icon">
 		<title>Intoprofits</title>
-		<link rel="stylesheet" href="../../style.css">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script src="https://kit.fontawesome.com/9bdf3cc272.js" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="../../style.css">
 	</head>
 <body>
 	<header>
@@ -30,7 +32,7 @@
 					<a href="#"><i class="fas fa-heart"></i>Refer a friend</a>
 					<a href="#"><i class="fab fa-facebook"></i>Community</a>
 					<a href="#"><i class="fas fa-question-circle"></i>Help</a>
-					<a href="#"><i class="fas fa-user"></i>My Profile</a>
+					<a href="../profile/personal-details.html"><i class="fas fa-user"></i>My Profile</a>
 					<a href="#"><i class="fas fa-lock-open"></i>Logout</a>
 				</nav>
 			</div>
@@ -61,97 +63,86 @@
 	</header>
 	<!-- /header  -->
 
-	<main class="clear">
+	<main>
 		
-		<aside class="side-nav">
-			<nav class="side-menu links">
-				<a href="../supply-chain/inventory-analysis.html" title="Inventory Analysis" class="active"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
-				<a href="../supply-chain/po-creator.html"  title="P.O Creator"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
-				<a href="../supply-chain/products.html" title="My Products"><i class="fas fa-box-open"></i>My Products</a>
-				<a href="../supply-chain/contacts.html" title="My Contacts"><i class="fas fa-address-card"></i>My Contacts</a>
-			</nav>
-		</aside>
-		<!-- /sidenav -->
+			<aside class="side-nav bg-white pt-3 pb-3">
+				<nav class="side-menu links ">
+					<a class="active" href="../supply-chain/inventory-analysis.html"><i class="fas fa-chart-pie"></i>Inventory Analysis</a>
+					<a class="" href="../supply-chain/po-creator.html"><i class="fas fa-folder-plus"></i>P.O. Creator</a>
+					<a class="" href="../supply-chain/products.html" ><i class="fas fa-box-open"></i>My Products</a>
+					<a class="" href="../supply-chain/contacts.html" ><i class="fas fa-address-card"></i>My Contacts</a>
+				</nav>
+			</aside>
+			<!-- /sidenav -->
 
-		<div class="container clear">
-			<section class="content full">
-				<a onclick="learnMore()" class="learn" >Learn <i class="fas fa-play-circle"></i></a>
-				<h4>Inventory Analysis</h4>
+			<section class="main-container container-fluid pt-3">
 
-				<a href="#" class="button"><i class="fas fa-tags"></i>Sort By Brand</a>
-				<a href="#" class="button"><i class="fas fa-calendar-alt"></i>Sort By Days of Stock</a>
-				<a href="#" class="button"><i class="fas fa-search"></i>Custom Filter</a>
-				
-				<div class="inventory-list-wrap">
-					<div class="inventory-label">
-						<span class="id">#</span>
-						<span class="img">Image</span>
-						<span class="title">Title</span>
-						<span class="current">Current Inventory</span>
-						<span class="ddlt">DDLT (Units)</span>
-						<span class="ss">SS (Units)</span>
-						<span class="rop">ROP (Units)</span>
-						<span class="sevenDayAverage">7 Day Average</span>
-						<span class="thirtyDayAverage">30 Day Average</span>
-						<span class="reOrder">Create PO</span>
-					</div>
+				<div class="container-fluid bg-white pt-3 pb-3">
+					<a href="#" onclick="learnMore()" role="button" class="btn btn-primary btn-sm float-right" >Learn <i class="fas fa-play-circle"></i></a>
+					<h4 class="mb-3" >Inventory Analysis</h4>
 
-					<article class="inventory-list">
+					<button type="button" class="btn btn-primary"><i class="fas fa-tags mr-2"></i>Sort By Brand</button>
+					<button type="button" class="btn btn-primary"><i class="fas fa-calendar-alt mr-2"></i>Sort By Days of Stock</button>
+					<button type="button" class="btn btn-primary"><i class="fas fa-search mr-2"></i>Custom Filter</button>
 
-						<!-- inventory list here -->
-						<script>
-
-							let inventoryList = document.querySelector('.inventory-list'),
-								products = [
-										{ id: "1", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Plate', asin: '6DSF645DGF7', sku: 'M34F098', lead: '10',safetystock: '21', current: "100", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
-										{ id: "2", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Spoon', asin: 'E9WE87R3W', sku: 'M34F098', lead: '8',safetystock: '18', current: "65", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
-										{ id: "3", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Fork', asin: 'C3V218E3', sku: 'M34F098', lead: '16',safetystock: '16', current: "800", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
-										{ id: "4", img: "https://dummyimage.com/100x100/e1e5e6/000.png", title: 'Cup', asin: 'AD8F749AD', sku: 'M34F098', lead: '17',safetystock: '05', current: "1500", ddlt: "1213", ss: "1213", rop: "1213", sevenDayAv: { average: '32',reOrderDate: '03/04/19', stockOutDate: '08/07/20' }, thirtyDayAv: { average: '12', reOrderDate: '12/13/20', stockOutDate: '02/12/20' }},
-									]
-					
-							const listProducts = (element, list) => {
-								list.forEach(e => {
-									element.innerHTML += 
-									`<div class="inventory-item">
-										<span class="id">${e.id}</span>
-										<span class="img"><img src="${e.img}" alt=""></span>
-										<span class="title">
-											<p class="name">${e.title}</p>
-											<p>ASIN: ${e.asin}</p>
-											<p>SKU: ${e.sku}</p>
-											<p>Lead Time: <a href="#">${e.lead}</a></p>
-											<p>Safety Stock: <a href="#">${e.safetystock}</a></p>
-										</span>
-										<span class="current">${e.current}</span>
-										<span class="ddlt">${e.ddlt}</span>
-										<span class="ss">${e.ss}</span>
-										<span class="rop">${e.rop}</span>
-										<span class="sevenDayAverage">
-											<p>Average:${e.sevenDayAv.average}</p>
-											<p>Re-Order Date: <a href="#">${e.sevenDayAv.reOrderDate}</a></p>
-											<p>Stock-Out Date: <a href="#">${e.sevenDayAv.stockOutDate}</a></p>
-										</span>
-										<span class="thirtyDayAverage">
-											<p>Average:${e.thirtyDayAv.average}</p>
-											<p>Re-Order Date: <a href="#">${e.thirtyDayAv.reOrderDate}</a></p>
-											<p>Stock-Out Date: <a href="#">${e.thirtyDayAv.stockOutDate}</a></p>
-										</span>
-										<span class="reOrder"><a href="#" class="button">Create P.O.</a></span>
-									</div>`;
-								});
-							};
-					
-							listProducts(inventoryList, products);
-					
-						</script>
-						<!-- / inventory list here -->
-
-					</article>
+					<table class="table mt-3">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Image</th>
+								<th scope="col">Title</th>
+								<th scope="col">Current Inventory</th>
+								<th scope="col">DDLT (Units)</th>
+								<th scope="col">SS (Units)</th>
+								<th scope="col">ROP (Units)</th>
+								<th scope="col">7 Day Average</th>
+								<th scope="col">30 Day Average</th>
+								<th scope="col">Create PO</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">1</th>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>7</td>
+								<td>6</td>
+								<td>5</td>
+								<td>4</td>
+								<td>3</td>
+								<td>2</td>
+								<td><button class="btn btn-primary">Create P.O.</button></td>
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>7</td>
+								<td>6</td>
+								<td>5</td>
+								<td>4</td>
+								<td>3</td>
+								<td>2</td>
+								<td><button class="btn btn-primary">Create P.O.</button></td>
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td>Larry</td>
+								<td>the Bird</td>
+								<td>7</td>
+								<td>6</td>
+								<td>5</td>
+								<td>4</td>
+								<td>3</td>
+								<td>2</td>
+								<td><button class="btn btn-primary">Create P.O.</button></td>
+							</tr>
+						</tbody>
+					</table>
+	
 				</div>
-
-            </section>
-		</div>
-
+			</section>
+			
 	</main>
 	<!-- /main -->
 	
@@ -169,6 +160,9 @@
 		<!-- /learn more modal -->
 		
 		<p>Copyright Intorprofits 2020</p>
+		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="../../app.js"></script>
 
 	</footer>

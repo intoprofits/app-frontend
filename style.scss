@@ -10,117 +10,12 @@ $border-light: 1px solid #DCDCDC;
 $white: #fff;
 $black: #000;
 
-// reset
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-display: block; }
 
 body {
-    line-height: 1;
-    font-size: 14px;
     font-family: 'Raleway', sans-serif;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-blockquote, q {
-    quotes: none;
-    &:before, &:after {
-        content: '';
-        content: none; }
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-h5 { font-weight: bold; font-size: 1.2rem; }
-h4 { font-weight: bold; font-size: 1.4rem; }
-h3 { font-weight: bold; font-size: 1.6rem; }
-h2 { font-weight: bold; font-size: 1.8rem; }
-h1 { font-weight: bold; font-size: 2rem; }
-b { font-weight: bold; }
-.clear {
-    *zoom:1;
-    &:before, &:after {
-        content:' ';
-        display:table;
-        clear:both;
-    }
-}
-
-a {
-    text-decoration: none;
-    color: $blue;
-    transition: all .2s;
-    cursor: pointer;
-    &:hover {
-        opacity: .9;
-    }
-
-    &.button {
-        background: $blue;
-        padding: 1rem 2rem;
-        color: $white;
-        display: block;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1rem;
-
-        &.fullwidth {
-            display: block;
-            margin: 0 0 1rem;
-        }
-
-        i {
-            font-size: .8rem;
-            margin-right: .4rem;
-            position: relative;
-            top: -1px;
-        }
-    }
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-input[type="search"] {
-    ::-webkit-search-decoration,
-    ::-webkit-search-cancel-button,
-    ::-webkit-search-results-button,
-    ::-webkit-search-results-decoration { display: none; outline: none}
-}
-
-select, textarea, input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])  {
-    padding: .4rem .5rem;
-	width: 100%;
-    color: $black;
-    font-size: .8rem;
-	outline: none;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
-    border: $border-light;
     background: $blueGray;
-    display: block;
-    
-    &:focus {
-        border: 1px solid #598DFB;
-        color: #000000;
-        background: #EDF2FD;
-    }
 }
+
 
 
 
@@ -235,22 +130,21 @@ header {
 }
 
 // Main 
-main {
-    display: flex;
-}
+// main.container-fluid {
+//     padding: 0;
+// }
 
 .side-nav {
-    background: $blueGray;
-    border-right: $border;
     display: block;
+    min-height: 75vh;
     .side-menu {
         a {
-            display: block;
             padding: .8rem .3rem;
             color: $black;
             font-size: .8rem;
             border-left: .2rem solid $blueGray;
-            text-align: center;
+            display: flex;
+            text-decoration: none;
             &.active, &:hover {
                 background: $blueGray;
                 border-left: .2rem solid $gray1;
@@ -260,9 +154,8 @@ main {
             }
             i {
                 color: $gray1;
-                display: block;
+                margin-right: .5rem;
                 font-size: 1.2rem;
-                margin-bottom: .5rem;
             }
             // .title {
             //     display: none;
@@ -310,14 +203,7 @@ main {
     }
 }
 
-.input-wrap {
-    p {
-        margin-bottom: .3rem;
-    }
-    select, input, textarea {
-        margin-bottom: 1rem;
-    }
-}
+
 
 // Footer 
 footer {
@@ -465,16 +351,13 @@ footer {
         width: 100%;
         display: block;
         margin: 0 auto;
-        border: $border;
         padding: 3rem 2rem;
         text-align: center;
         font-size: .9rem;
+        background: $white;
 
-        .input-wrap {
+        .form-group {
             text-align: left;
-            p {
-                font-size: 1rem;
-            }
         }
         img.logo {
             max-width: 300px;
@@ -482,18 +365,15 @@ footer {
             display: block;
             margin: 0 auto 1.2rem;
         }
-        h5 {
+        .sub-title {
             margin-bottom: 2.5rem;
         }
-        input[type="password"], input[type="checkbox"] {
-            margin-bottom: 1rem;
+        .forgot-pass {
+            margin-top: .5rem;
+            display: block;
+            font-size: .8rem;
         }
-        .button {
-            margin-top: 1.5rem;
-        }
-        
     }
- 
 }
 
 
@@ -772,9 +652,13 @@ footer {
         }
     }
 
+    main {
+        display: flex;
+    }
+
 
     header {
-        margin-bottom: 1.5rem;
+        // margin-bottom: 1.5rem;
         .logo-wrap {
             // border: none;
             img.logo {
@@ -793,7 +677,6 @@ footer {
 
     .side-nav {
         background: none;
-        border-right: $border;
         min-width: 220px;
         display: block;
         .side-menu {
@@ -847,10 +730,6 @@ footer {
 /* Medium Devices, Desktops */
 @media (min-width: 992px) {
 
-    select, textarea, input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])  {
-        padding: .6rem 1rem;
-        font-size: 1rem;
-    }
 
     header {
         .desktop-menu {
@@ -873,9 +752,6 @@ footer {
         }
     }
 
-    main {
-        margin: 3rem 0;
-    }
 
     .side-nav {
         min-width: 260px;
