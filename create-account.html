@@ -14,7 +14,17 @@
 	<main class="login-container">
 		<form action="#">
 			<img src="./imgs/logo-black.png" alt="" class="logo">
-			<h5>Sign in to your account</h5>
+			<h5>Create your account</h5>
+			<div class="input-wrap">
+				<p>Full Name</p>
+				<input type="text" name="name" id="name">
+			</div>
+
+			<div class="input-wrap">
+				<p>Company Name</p>
+				<input type="text" name="name" id="name">
+			</div>
+
 			<div class="input-wrap">
 				<p>Email</p>
 				<input type="email" name="" id="">
@@ -22,14 +32,17 @@
 
 			<div class="input-wrap">
 				<p>Password</p>
+				<input type="pwrd" name="" id="">
+			</div>
+
+			<div class="input-wrap">
+				<p>Confirm Password</p>
 				<input type="password" name="" id="">
 				<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-				<label for="vehicle3">Remember Me</label>
+				<label for="vehicle3">I agree to the <a href="#">Terms and Services</a></label>
 			</div>
-			<a href="./pages/supply-chain/inventory-analysis.html" class="button fullwidth">Sign In</a>
-			<a href="#" class="forgot-pass">Forget Password</a>
-			<span style="width: 50px; display: inline-block; color: #c9c9c9;">|</span>
-			<a href="/create-account.html" class="forgot-pass">Create Account</a>
+			<a href="confirm-account.html" class="button fullwidth">Create Account</a>
+			<p>Already have an Account? <a href="index.html" class="forgot-pass">Sign in</a></p>
 		</form>
 	</main>
 	<!-- /main -->
