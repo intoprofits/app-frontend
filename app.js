@@ -1,14 +1,16 @@
+
+
+
 // variables
 let menuDrawer = document.querySelector('.main-mobile-menu'),
-    mobileMenu = document.querySelector('.mobile-menu .menu'),
     innerModal = document.querySelector('.modal-contents'),
     loadingBar = document.querySelector('.loading-bar'),
     modal = document.querySelector('.modal.active');
-    
+
 
 // functions
 const showMenu = () => {
-    mobileMenu.classList.toggle('show');
+    document.querySelector('.mobile-menu .menu').classList.toggle('show');
 }
 
 const learnMore = () => {
@@ -29,6 +31,7 @@ const addItemModal = () => {
 const toggleLoading = () => {
     document.querySelector('.loading-bar').classList.toggle('active') 
 }
+
 
 // function openModal() {
 //     [].forEach.call(document.querySelectorAll('a.modal'), function(e) { 

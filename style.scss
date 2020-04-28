@@ -136,7 +136,7 @@ header {
         border-bottom: $border;;
         img.logo {
             display: inline-block;
-            max-width: 150px;
+            max-height: 20px;
         }
         i.main-mobile-menu {
             font-size: 1.8rem;
@@ -213,22 +213,35 @@ header {
             }
         }
         .main-nav {
-            display: table;
-            margin: 0 auto;
-            a {
-                padding: 1rem;
-                display: inline-block;
-                color: $black;
-                font-size: .9rem;
-                border-bottom: .3rem solid $blueGray;
-                &:hover {
-                    background: $white;
+            position: relative;
+
+            nav {
+
+                a {
+                    padding: 1rem;
+                    display: inline-block;
+                    color: $black;
+                    font-size: .9rem;
+                    border-bottom: .3rem solid $blueGray;
+                    &:hover {
+                        background: $white;
+                    }
+                    &.active, &:hover {
+                        border-color: $blue;
+                    }
+    
                 }
-                &.active, &:hover {
-                    border-color: $blue;
-                }
+            }
+
+            img.logo {
+                position: absolute;
+                top: 1.1rem;
+                right: 2rem;
+                max-width: 120px;
+                opacity: .3;
 
             }
+            
             
         }
     }
@@ -325,6 +338,12 @@ footer {
     padding: 2rem 0;
     background: $blueGray;
     border-top: $border-light;
+
+    img.logo {
+        max-width: 200px;
+        margin: 0 auto .6rem;
+        display: block;
+    }
 }
 
 
@@ -776,10 +795,8 @@ footer {
     header {
         margin-bottom: 1.5rem;
         .logo-wrap {
-            // border: none;
             img.logo {
-                display: inline-block;
-                max-width: 206px;
+                max-height: 24px;
             }
         }
         .mobile-menu {
@@ -861,14 +878,23 @@ footer {
                  }
             }
             .main-nav {
-                a {
-                    font-size: 1.2rem;
-                    padding: 1rem 2rem;
-    
-                    &.active, &:hover {
-                        border-bottom: .4rem solid $blue;
-                    }
-                 }
+                
+                nav {
+                    a {
+                        font-size: 1.2rem;
+                        padding: 1rem 2rem;
+        
+                        &.active, &:hover {
+                            border-bottom: .4rem solid $blue;
+                        }
+                     }
+                }
+                img.logo {
+                    max-height: 24px;
+                    top: 1.3rem;
+                    right: 2.5rem;
+                }
+                
             }
         }
     }
@@ -955,12 +981,24 @@ footer {
 /* Large Devices, Wide Screens */
 @media (min-width : 1180px) {
     
+    // header {
+    //     .desktop {
+    //         .menu {
+    //             a {
+    //                 padding: 1rem 2.4rem;
+    //              }
+    //         }
+    //     }
+    // }
+
+
     header {
-        .desktop {
-            .menu {
-                a {
-                    padding: 1rem 2.4rem;
-                 }
+        .desktop-menu {
+            .main-nav {
+                nav {
+                  display: table;
+                  margin: 0 auto;
+                }
             }
         }
     }
